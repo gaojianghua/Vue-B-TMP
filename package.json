@@ -1,0 +1,80 @@
+{
+  "name": "web-b-tmp",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint --fix --ext .ts,.vue src",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@element-plus/icons-vue": "^2.0.9",
+    "@fullcalendar/core": "^5.11.2",
+    "@fullcalendar/daygrid": "^5.11.2",
+    "@fullcalendar/interaction": "^5.11.2",
+    "@types/nprogress": "^0.2.0",
+    "@vueuse/core": "^9.1.1",
+    "axios": "^0.27.2",
+    "echarts": "^5.3.3",
+    "element-plus": "^2.2.14",
+    "md5": "^2.3.0",
+    "mockjs": "^1.1.0",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.20",
+    "pinia-plugin-persistedstate": "^2.1.1",
+    "vue": "^3.2.37",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.1.4",
+    "wangeditor": "4.7.9"
+  },
+  "devDependencies": {
+    "@types/md5": "^2.3.2",
+    "@types/mockjs": "^1.0.6",
+    "@types/node": "^18.7.11",
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
+    "@typescript-eslint/parser": "^5.34.0",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "@vitejs/plugin-vue-jsx": "^2.0.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "autoprefixer": "^10.4.8",
+    "babel-eslint": "^10.1.0",
+    "cz-customizable": "^6.9.1",
+    "eslint": "^8.22.0",
+    "eslint-formatter-pretty": "^4.1.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.4.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.16",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.5",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.7.4",
+    "unplugin-auto-import": "^0.11.2",
+    "unplugin-vue-components": "^0.22.4",
+    "vite": "^3.0.9",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue-tsc": "^0.40.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{vue,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "main": "index.js",
+  "repository": "git@github.com:gaojianghua/web-B-tmp.git",
+  "author": "高江华 <g598670138@163.com>",
+  "license": "MIT"
+}

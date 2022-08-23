@@ -1,0 +1,62 @@
+import path from 'path'
+import { isNull } from './conversion'
+import { generateTitle } from './routeI18n'
+
+/**
+ * 所有子集路由
+ */
+const getChildrenRoutes = (routes: any[]) => {
+    const result = <any[]>[]
+    routes.forEach((route) => {
+        if (route.children && route.children.length > 0) {
+            result.push(...route.children)
+        }
+    })
+    return result
+}
+
+/**
+ * 处理脱离层级的路由
+ */
+export const filterRoutes = (routes: any) => {
+    // 所有的子集路由
+    const childrenRoutes = getChildrenRoutes(routes)
+    // 根据子集路由进行查重操作
+    return routes.filter((route: any) => {
+        // 对比 route 与 childrenRoutes 进行查重, 把所有的重复路由剔除
+        return !childrenRoutes.find((childrenRoutes) => {
+            return childrenRoutes.path === route.path
+        })
+    })
+}
+
+/**
+ * 根据 routes 数据, 返回对应的 menu 规则数据
+ */
+export const generateMenus = (routes: any) => {
+    const result = <any>[]
+    routes.forEach((item: any) => {
+        // 不存在 children && 不存在 meta 直接 return
+        if (isNull(item.children) && isNull(item.meta)) return
+        // 存在 children, 不存在meta, 迭代 generateMenus
+        if (isNull(item.meta) && !isNull(item.children)) {
+            result.push(...generateMenus(item.children))
+        }
+        let route = {
+            ...item,
+            icon: item.meta.icon,
+            name: item.meta.title ? generateTitle(item.meta.title) : item.meta.title,
+            path: item.path,
+            index: item.path,
+            children: []
+        }
+        if (item.meta.icon && item.meta.title) {
+            result.push(route)
+        }
+        // 存在 children && 存在 meta
+        if (!isNull(item.children)) {
+            route.children.push(...generateMenus(item.children))
+        }
+    })
+    return result
+}
