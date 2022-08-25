@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 01:08:48
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-24 01:20:09
+ * @LastEditTime : 2022-08-25 01:04:11
  * @FilePath     : \web-B-tmp\src\components\theme-select\index.vue
  * @Description  : 
  * 
@@ -24,13 +24,21 @@
             </el-dropdown-menu>
         </template>
     </el-dropdown>
+    <div>
+        <select-color v-model="selectColorVisible"></select-color>
+    </div>
 </template>
 
 <script setup lang="ts">
-import Color from 'element-plus/es/components/color-picker/src/color'
 import { ref } from 'vue'
 
-const handleSetTheme = (color: string) => {}
+// 显示取色器
+const handleSetTheme = () => {
+    selectColorVisible.value = true
+}
+
+// 控制取色器显示
+const selectColorVisible = ref<boolean>(false)
 </script>
 
 <style lang="scss" scoped>

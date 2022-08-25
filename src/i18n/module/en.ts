@@ -48,6 +48,7 @@ export default {
         themeChange: 'Theme Change'
     },
     universal: {
+        title: 'remind',
         confirm: 'confirm',
         cancel: 'cancel'
     },

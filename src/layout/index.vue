@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <el-aside width="auto" :style="{ backgroundColor: useStore().common.globalCss.menuBg }">
+        <el-aside width="auto">
             <l-aside :collapse="isCollapse" />
         </el-aside>
         <el-container>
@@ -18,7 +18,6 @@
 import LAside from './components/l-side/index.vue'
 import RHeader from './components/r-header/index.vue'
 import { ref } from 'vue'
-import useStore from '@/store'
 
 const isCollapse = ref(false)
 </script>

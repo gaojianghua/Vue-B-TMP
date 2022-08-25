@@ -6,3 +6,4 @@ declare module '*.vue' {
     export default component
 }
 declare module 'wangeditor'
+declare module 'css-color-function'

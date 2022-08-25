@@ -30,7 +30,7 @@
                     :placeholder="i18n.t('login.password')"
                     prefix-icon="Lock"
                     show-password
-                    @keyup.enter.native="onLogin(ruleFormRef)"
+                    @keyup.enter="onLogin(ruleFormRef)"
                 ></el-input>
             </el-form-item>
             <el-form-item>

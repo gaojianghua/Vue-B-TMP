@@ -26,13 +26,9 @@ module.exports = {
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'vue/multi-word-component-names': 'off',
+        'no-unused-vars': 'off',
         'prettier/prettier': 'error',
-        'space-before-function-paren': 0,
-        'vue/multi-word-component-names': [
-            "error",
-            {
-                ignores: ["index"]
-            }
-        ]
+        'space-before-function-paren': 0
     }
 }

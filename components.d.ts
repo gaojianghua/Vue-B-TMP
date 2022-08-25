@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
+    ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
@@ -52,6 +53,7 @@ declare module '@vue/runtime-core' {
     LangSelect: typeof import('./src/components/lang-select/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SelectColor: typeof import('./src/components/theme-select/components/select-color.vue')['default']
     ThemeSelect: typeof import('./src/components/theme-select/index.vue')['default']
   }
   export interface ComponentCustomProperties {
