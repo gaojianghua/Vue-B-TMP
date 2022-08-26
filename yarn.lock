@@ -752,6 +752,13 @@
   resolved "https://registry.npmmirror.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
+"@types/screenfull@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.npmmirror.com/@types/screenfull/-/screenfull-4.1.0.tgz#e2f7bbb1d2c32c07e54908e47d00724b7515c2cb"
+  integrity sha512-TuFSOzuzGFVCdQmwp+a0/Qim+nJhclaWha18yK/xmjrwdPI7qrfeyoSyPx8MoJP8X5d2MwB4a6d2sZhUjJwz9A==
+  dependencies:
+    screenfull "*"
+
 "@types/svgo@^2.6.1":
   version "2.6.4"
   resolved "https://registry.npmmirror.com/@types/svgo/-/svgo-2.6.4.tgz#b7298fc1dd687539fd63fc818b00146d96e68836"
@@ -2642,6 +2649,11 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.npmmirror.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha512-dsKNQNdj6xA3T+QlADDA7mOSlX0qiMINjn0cgr+eGHGsbSHzTabcIogz2+p/iqP1Xs6EP/sS2SbqH+brGTbq0g==
 
+fuse.js@^6.6.2:
+  version "6.6.2"
+  resolved "https://registry.npmmirror.com/fuse.js/-/fuse.js-6.6.2.tgz#fe463fed4b98c0226ac3da2856a415576dc9a111"
+  integrity sha512-cJaJkxCCxC8qIIcPBF9yGxY0W/tVZS3uEISDxhYIdtk8OL93pe+6Zj7LjCqVV4dzbqcriOZ+kQ/NE4RXZHsIGA==
+
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
   resolved "https://registry.npmmirror.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
@@ -4317,6 +4329,11 @@ sass@^1.54.5:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
+
+screenfull@*, screenfull@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.npmmirror.com/screenfull/-/screenfull-6.0.2.tgz#3dbe4b8c4f8f49fb8e33caa8f69d0bca730ab238"
+  integrity sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw==
 
 scule@^0.3.2:
   version "0.3.2"

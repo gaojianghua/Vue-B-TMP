@@ -6,7 +6,6 @@ coverage
 *.scss
 *.woff
 *.ttf
-*.ts
 src/index.ts
 dist
 utils

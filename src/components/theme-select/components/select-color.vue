@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 21:20:18
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-25 01:08:43
+ * @LastEditTime : 2022-08-26 04:29:03
  * @FilePath     : \web-B-tmp\src\components\theme-select\components\select-color.vue
  * @Description  : 
  * 
@@ -71,13 +71,6 @@ const onclose = () => {
 const onConfirm = async () => {
     const colors = await generateNewStyle(mainColor.value)
     writeNewStyle(colors)
-    // const el = document.documentElement
-    // const color = useCssVar('--el-color-primary', el)
-    // color.value = mainColor.value
-    // Object.keys(formula).forEach(key => {
-    //     const color = useCssVar(key, el)
-    //     color.value = mainColor.value + formula[key as keyof typeof formula]
-    // })
     useStore().common.setMainColor(mainColor.value)
     onclose()
 }

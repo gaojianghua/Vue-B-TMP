@@ -9,6 +9,10 @@
         <breadcrumb></breadcrumb>
         <!-- 用户信息 -->
         <div class="ml-auto flex items-center">
+            <!-- 页面搜索 -->
+            <header-search></header-search>
+            <!-- 全屏切换 -->
+            <screen-full class="w-[30px] h-[30px] mx-2"></screen-full>
             <!-- 换肤 -->
             <theme-select class="w-[32px] h-[32px] mr-2"></theme-select>
             <!-- 选择语言 -->

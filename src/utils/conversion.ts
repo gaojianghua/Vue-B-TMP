@@ -1,3 +1,13 @@
+/*
+ * @Author       : 高江华 g598670138@163.com
+ * @Date         : 2022-08-24 03:12:47
+ * @LastEditors  : 高江华 g598670138@163.com
+ * @LastEditTime : 2022-08-26 21:43:46
+ * @FilePath     : \web-B-tmp\src\utils\conversion.ts
+ * @Description  :
+ *
+ * Copyright (c) 2022 by 高江华 g598670138@163.com, All Rights Reserved.
+ */
 import { formula } from '@/constants/formula'
 import color from 'css-color-function'
 import axios from 'axios'
@@ -86,7 +96,8 @@ const getStyleTemplate = (data: string) => {
         '#c6e2ff': 'gaolight-7',
         '#d9ecff': 'gaolight-8',
         '#ecf5ff': 'gaolight-9',
-        '#337ecc': 'gaodark-2'
+        '#337ecc': 'gaodark-2',
+        '#606266': 'gaoregular'
     }
 
     Object.keys(colorMap).forEach((key) => {

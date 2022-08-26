@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-23 02:35:27
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-24 01:20:55
+ * @LastEditTime : 2022-08-26 04:37:52
  * @FilePath     : \web-B-tmp\src\components\lang-select\index.vue
  * @Description  : 
  * 
@@ -68,7 +68,6 @@ const i18n = useI18n()
 const handleSetLanguage = (lang: string) => {
     i18n.locale.value = lang
     useStore().common.setLanguage(lang)
-    setItem(LANG, lang)
     ElMessage.success(i18n.t('toast.switchLangSuccess'))
 }
 </script>

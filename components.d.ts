@@ -50,10 +50,13 @@ declare module '@vue/runtime-core' {
     ElTimeSelect: typeof import('element-plus/es')['ElTimeSelect']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElUpload: typeof import('element-plus/es')['ElUpload']
+    HeaderSearch: typeof import('./src/components/header-search/index.vue')['default']
     LangSelect: typeof import('./src/components/lang-select/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScreenFull: typeof import('./src/components/screen-full/index.vue')['default']
     SelectColor: typeof import('./src/components/theme-select/components/select-color.vue')['default']
+    SereenFull: typeof import('./src/components/sereen-full/index.vue')['default']
     ThemeSelect: typeof import('./src/components/theme-select/index.vue')['default']
   }
   export interface ComponentCustomProperties {

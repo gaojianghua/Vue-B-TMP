@@ -26,8 +26,9 @@ export const formula = {
     'gaolight-8': 'color(primary tint(80%))',
     'gaolight-9': 'color(primary tint(90%))',
     'gaodark-2': 'color(primary)',
-    gaosubMenuHover: 'color(primary tint(70%))',
-    gaosubMenuBg: 'color(primary tint(80%))',
-    gaomenuHover: 'color(primary tint(90%))',
-    gaomenuBg: 'color(primary)'
+    gaoregular: 'color(primary)',
+    menuHover: 'color(primary tint(70%))',
+    menuBg: 'color(primary)',
+    subMenuHover: 'color(primary tint(90%))',
+    subMenuBg: 'color(primary)'
 }
