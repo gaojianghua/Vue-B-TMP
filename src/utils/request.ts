@@ -1,9 +1,9 @@
 //http.ts
 import axios, { AxiosRequestConfig } from 'axios'
 import NProgress from 'nprogress'
-import useStore from '@/store'
 import { isCheckTimeout } from '@/utils/author'
 import { ElMessage } from 'element-plus'
+import useStore from '@/store'
 
 // 设置请求头和请求路径
 const server = axios.create({
@@ -25,6 +25,8 @@ server.interceptors.request.use(
             //@ts-ignore
             config.headers.Authorization = `Bearer ${token}`
         }
+        //@ts-ignore
+        config.headers['Accept-Language'] = useStore().common.language
         return config
     },
     (error) => {
