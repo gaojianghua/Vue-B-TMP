@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-26 05:14:34
+ * @LastEditTime : 2022-08-27 12:57:35
  * @FilePath     : \web-B-tmp\src\store\common.ts
  * @Description  :
  *
@@ -11,15 +11,22 @@
 import { defineStore } from 'pinia'
 import variables from '@/styles/variables.module.scss'
 import { getItem, setItem } from '@/utils/storage'
-import { LANG, MAIN_COLOR, DEFAULT_COLOR } from '@/constants'
+import { LANG, MAIN_COLOR, DEFAULT_COLOR, TAGS_VIEW } from '@/constants'
 import { generateColors } from '@/utils/conversion'
+import { RouteLocation } from 'vue-router'
+
+interface TPayload {
+    index: number
+    type: 'other' | 'right' | 'index'
+}
 
 const useCommonStore = defineStore('common', {
     state: () => {
         return {
             variables: variables as any,
             language: <string>getItem(LANG) || 'zh',
-            mainColor: <string>getItem(MAIN_COLOR) || DEFAULT_COLOR
+            mainColor: <string>getItem(MAIN_COLOR) || DEFAULT_COLOR,
+            tagsViewList: <RouteLocation[]>getItem(TAGS_VIEW) || []
         }
     },
     getters: {
@@ -39,6 +46,35 @@ const useCommonStore = defineStore('common', {
             this.mainColor = newColor
             this.variables.menuBg = newColor
             setItem(MAIN_COLOR, newColor)
+        },
+        // 添加 tags
+        addTagsViewList(newTag: any) {
+            // 处理重复 tag
+            const isFind = this.tagsViewList.find((item) => {
+                return item.path === newTag.path
+            })
+            if (!isFind) {
+                this.tagsViewList.push(newTag)
+                setItem(TAGS_VIEW, this.tagsViewList)
+            }
+        },
+        // 删除 tags
+        removeTagsView(payload: TPayload) {
+            if (payload.type === 'index') {
+                this.tagsViewList.splice(payload.index, 1)
+            } else if (payload.type === 'other') {
+                this.tagsViewList.splice(
+                    payload.index + 1,
+                    this.tagsViewList.length - payload.index + 1
+                )
+                this.tagsViewList.splice(0, payload.index)
+            } else if (payload.type === 'right') {
+                this.tagsViewList.splice(
+                    payload.index + 1,
+                    this.tagsViewList.length - payload.index + 1
+                )
+            }
+            setItem(TAGS_VIEW, this.tagsViewList)
         }
     },
     persist: {

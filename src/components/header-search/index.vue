@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-26 09:20:53
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-27 03:41:08
+ * @LastEditTime : 2022-08-27 14:04:59
  * @FilePath     : \web-B-tmp\src\components\header-search\index.vue
  * @Description  :
  * 
@@ -11,6 +11,7 @@
 <template>
     <div class="flex items-center" :class="{ show: isShow }">
         <g-svg-icon
+            id="guide-search"
             class="cursor-pointer text-[18px] w-[26px] h-[26px] mr-2"
             name="search"
             @click.stop="onShowClick"

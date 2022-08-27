@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-23 02:35:27
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-26 04:37:52
+ * @LastEditTime : 2022-08-27 14:06:06
  * @FilePath     : \web-B-tmp\src\components\lang-select\index.vue
  * @Description  : 
  * 
@@ -12,7 +12,7 @@
     <el-dropdown class="border-none" trigger="click" @command="handleSetLanguage">
         <div>
             <el-tooltip :content="$t('navBar.lang')" placement="bottom" :effect="effect">
-                <g-svg-icon name="language"></g-svg-icon>
+                <g-svg-icon id="guide-lang" name="language"></g-svg-icon>
             </el-tooltip>
         </div>
         <template #dropdown>
@@ -72,9 +72,4 @@ const handleSetLanguage = (lang: string) => {
 }
 </script>
 
-<style lang="scss" scoped>
-svg {
-    width: 100% !important;
-    height: 100% !important;
-}
-</style>
+<style lang="scss" scoped></style>

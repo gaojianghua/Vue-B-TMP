@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 01:08:48
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-25 01:04:11
+ * @LastEditTime : 2022-08-27 14:05:42
  * @FilePath     : \web-B-tmp\src\components\theme-select\index.vue
  * @Description  : 
  * 
@@ -13,7 +13,7 @@
         <!-- 图标 -->
         <div>
             <el-tooltip :content="$t('navBar.themeChange')" placement="bottom">
-                <g-svg-icon name="change-theme"></g-svg-icon>
+                <g-svg-icon id="guide-theme" name="change-theme"></g-svg-icon>
             </el-tooltip>
         </div>
         <template #dropdown>
@@ -41,9 +41,4 @@ const handleSetTheme = () => {
 const selectColorVisible = ref<boolean>(false)
 </script>
 
-<style lang="scss" scoped>
-svg {
-    width: 100% !important;
-    height: 100% !important;
-}
-</style>
+<style lang="scss" scoped></style>

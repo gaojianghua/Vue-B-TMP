@@ -1,3 +1,13 @@
+/*
+ * @Author       : 高江华 g598670138@163.com
+ * @Date         : 2022-07-18 18:08:03
+ * @LastEditors  : 高江华 g598670138@163.com
+ * @LastEditTime : 2022-08-27 03:50:17
+ * @FilePath     : \web-B-tmp\src\constants\index.ts
+ * @Description  :
+ *
+ * Copyright (c) 2022 by 高江华 g598670138@163.com, All Rights Reserved.
+ */
 // token 时间戳
 export const TIME_STAMP = 'timeStamp'
 // 超时时长
@@ -8,3 +18,5 @@ export const LANG = 'language'
 export const MAIN_COLOR = 'mainColor'
 // 默认主题色
 export const DEFAULT_COLOR = '#409eff'
+// tags
+export const TAGS_VIEW = '#tagsView'

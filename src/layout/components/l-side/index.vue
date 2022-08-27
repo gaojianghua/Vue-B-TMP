@@ -1,5 +1,9 @@
 <template>
-    <div class="h-screen" :style="{ backgroundColor: useStore().common.globalCss.menuBg }">
+    <div
+        id="guide-sidebar"
+        class="h-screen"
+        :style="{ backgroundColor: useStore().common.globalCss.menuBg }"
+    >
         <div class="flex items-center justify-center py-5">
             <img v-if="collapse" class="w-[50px]" src="@/assets/images/logoImg.png" alt="" />
             <img v-else class="w-[120px] duration-300" src="@/assets/images/logo.png" alt="" />

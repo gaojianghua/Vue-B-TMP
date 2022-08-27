@@ -1,14 +1,16 @@
 <template>
     <div class="page flex items-center">
         <!-- logo -->
-        <el-icon class="cursor-pointer" size="25px" @click="toggle">
+        <el-icon class="cursor-pointer" id="guide-hamburger" size="25px" @click="toggle">
             <Expand v-if="modelValue" />
             <Fold v-else />
         </el-icon>
         <!-- 面包屑 -->
-        <breadcrumb></breadcrumb>
+        <breadcrumb id="guide-breadcrumb"></breadcrumb>
         <!-- 用户信息 -->
         <div class="ml-auto flex items-center">
+            <!-- 引导导航 -->
+            <guide-page class="w-[30px] h-[30px] mx-2"></guide-page>
             <!-- 页面搜索 -->
             <header-search></header-search>
             <!-- 全屏切换 -->

@@ -2,15 +2,18 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-26 05:27:26
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-26 09:14:19
+ * @LastEditTime : 2022-08-27 14:05:17
  * @FilePath     : \web-B-tmp\src\components\screen-full\index.vue
  * @Description  : 
  * 
  * Copyright (c) 2022 by 高江华 g598670138@163.com, All Rights Reserved. 
 -->
 <template>
-    <div class="" @click="onToggle">
-        <g-svg-icon :name="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"></g-svg-icon>
+    <div class="cursor-pointer" @click="onToggle">
+        <g-svg-icon
+            id="guide-full"
+            :name="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"
+        ></g-svg-icon>
     </div>
 </template>
 
@@ -40,9 +43,4 @@ onUnmounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-svg {
-    width: 100% !important;
-    height: 100% !important;
-}
-</style>
+<style lang="scss" scoped></style>
