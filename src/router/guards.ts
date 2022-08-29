@@ -1,3 +1,13 @@
+/*
+ * @Author       : 高江华 g598670138@163.com
+ * @Date         : 2022-08-24 03:12:46
+ * @LastEditors  : 高江华 g598670138@163.com
+ * @LastEditTime : 2022-08-29 06:38:02
+ * @FilePath     : \web-B-tmp\src\router\guards.ts
+ * @Description  :
+ *
+ * Copyright (c) 2022 by 高江华 g598670138@163.com, All Rights Reserved.
+ */
 import router from './index'
 import useStore from '@/store'
 import { isNull } from '@/utils/conversion'

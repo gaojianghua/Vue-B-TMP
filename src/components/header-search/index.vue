@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-26 09:20:53
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-27 14:04:59
+ * @LastEditTime : 2022-08-28 07:03:09
  * @FilePath     : \web-B-tmp\src\components\header-search\index.vue
  * @Description  :
  * 
@@ -43,10 +43,10 @@
 import { computed, ref, watch } from 'vue'
 import { filterRoutes } from '@/utils/route'
 import { useRouter } from 'vue-router'
-const router = useRouter()
-import Fuse from 'fuse.js'
 import { generateRoutes } from '@/utils/fuseData'
 import { watchSwitchLang } from '@/utils/routeI18n'
+const router = useRouter()
+import Fuse from 'fuse.js'
 
 // 控制search展示
 const isShow = ref<boolean>(false)

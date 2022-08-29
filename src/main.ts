@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-07-18 16:58:19
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-24 01:46:31
+ * @LastEditTime : 2022-08-29 04:18:28
  * @FilePath     : \web-B-tmp\src\main.ts
  * @Description  :
  *
@@ -22,10 +22,14 @@ import GViewUI from './components'
 import GTwoUI from './secondary'
 import App from './App.vue'
 import './mock'
+import filters from '@/filters'
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
+
 const app = createApp(App)
+
+filters(app)
 
 app.use(router)
 app.use(pinia)

@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-27 12:57:35
+ * @LastEditTime : 2022-08-30 07:10:27
  * @FilePath     : \web-B-tmp\src\store\common.ts
  * @Description  :
  *
@@ -20,13 +20,17 @@ interface TPayload {
     type: 'other' | 'right' | 'index'
 }
 
+interface NRouteLocation extends RouteLocation {
+    title: string
+}
+
 const useCommonStore = defineStore('common', {
     state: () => {
         return {
             variables: variables as any,
             language: <string>getItem(LANG) || 'zh',
             mainColor: <string>getItem(MAIN_COLOR) || DEFAULT_COLOR,
-            tagsViewList: <RouteLocation[]>getItem(TAGS_VIEW) || []
+            tagsViewList: <NRouteLocation[]>getItem(TAGS_VIEW) || []
         }
     },
     getters: {
@@ -58,6 +62,11 @@ const useCommonStore = defineStore('common', {
                 setItem(TAGS_VIEW, this.tagsViewList)
             }
         },
+        // 为指定的 tag 修改 title
+        changeTagsView({ index, tag }: any) {
+            this.tagsViewList[index] = tag
+            setItem(TAGS_VIEW, this.tagsViewList)
+        },
         // 删除 tags
         removeTagsView(payload: TPayload) {
             if (payload.type === 'index') {
@@ -82,10 +91,10 @@ const useCommonStore = defineStore('common', {
         storage: window.localStorage,
         paths: [],
         beforeRestore: (context) => {
-            console.log('Before hydration...:' + context)
+            //console.log('Before hydration...:' + context)
         },
         afterRestore: (context) => {
-            console.log('After hydration...:' + context)
+            //console.log('After hydration...:' + context)
         }
     }
 })

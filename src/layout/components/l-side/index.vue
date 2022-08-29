@@ -1,3 +1,13 @@
+<!--
+ * @Author       : 高江华 g598670138@163.com
+ * @Date         : 2022-08-24 03:12:46
+ * @LastEditors  : 高江华 g598670138@163.com
+ * @LastEditTime : 2022-08-29 06:38:21
+ * @FilePath     : \web-B-tmp\src\layout\components\l-side\index.vue
+ * @Description  : 
+ * 
+ * Copyright (c) 2022 by 高江华 g598670138@163.com, All Rights Reserved. 
+-->
 <template>
     <div
         id="guide-sidebar"
@@ -31,7 +41,6 @@ defineProps({
 })
 const data = computed(() => {
     const fRoutes = filterRoutes(router.getRoutes())
-    console.log(fRoutes)
     return generateMenus(fRoutes)
 })
 </script>

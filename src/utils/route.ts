@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-26 21:37:59
+ * @LastEditTime : 2022-08-29 05:32:26
  * @FilePath     : \web-B-tmp\src\utils\route.ts
  * @Description  :
  *
@@ -67,5 +67,6 @@ export const generateMenus = (routes: any) => {
             route.children.push(...generateMenus(item.children))
         }
     })
+
     return result
 }

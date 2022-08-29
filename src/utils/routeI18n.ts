@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-27 03:28:21
+ * @LastEditTime : 2022-08-29 06:09:17
  * @FilePath     : \web-B-tmp\src\utils\routeI18n.ts
  * @Description  :
  *

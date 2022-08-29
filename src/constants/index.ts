@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-07-18 18:08:03
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-27 03:50:17
+ * @LastEditTime : 2022-08-29 05:25:20
  * @FilePath     : \web-B-tmp\src\constants\index.ts
  * @Description  :
  *
@@ -19,4 +19,4 @@ export const MAIN_COLOR = 'mainColor'
 // 默认主题色
 export const DEFAULT_COLOR = '#409eff'
 // tags
-export const TAGS_VIEW = '#tagsView'
+export const TAGS_VIEW = 'tagsView'

@@ -61,10 +61,10 @@ const useUserStore = defineStore('user', {
         storage: window.localStorage,
         paths: ['token', 'userInfo'],
         beforeRestore: (context) => {
-            console.log('Before hydration...:' + context)
+            //console.log('Before hydration...:' + context)
         },
         afterRestore: (context) => {
-            console.log('After hydration...:' + context)
+            //console.log('After hydration...:' + context)
         }
     }
 })

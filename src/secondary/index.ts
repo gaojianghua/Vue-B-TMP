@@ -10,8 +10,10 @@
  */
 import { App } from 'vue'
 import menu from './menu'
+import table from './table'
+import list from './list'
 
-const components = [menu]
+const components = [menu, table, list]
 
 export default {
     install(app: App) {

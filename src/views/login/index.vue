@@ -61,8 +61,8 @@ const ruleFormRef = ref<FormInstance>()
 const loading = ref<boolean>(false)
 // 数据源
 const form = ref<SLogin>({
-    username: '',
-    password: ''
+    username: 'admin',
+    password: '123456'
 })
 // 验证规则
 const i18n = useI18n()

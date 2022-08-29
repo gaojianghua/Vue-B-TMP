@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-27 05:50:57
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-27 14:03:57
+ * @LastEditTime : 2022-08-29 06:04:11
  * @FilePath     : \web-B-tmp\src\components\tags-view\index.vue
  * @Description  : 
  * 
@@ -22,7 +22,7 @@
             }"
             @contextmenu.prevent="openMenu($event, i)"
         >
-            {{ $t(`route.${tag.meta.title}`) }}
+            {{ tag.title }}
             <el-icon
                 class="close ml-1"
                 v-show="!isActive(tag)"
