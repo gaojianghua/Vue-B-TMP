@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-29 00:38:36
+ * @LastEditTime : 2022-08-30 08:20:17
  * @FilePath     : \web-B-tmp\src\mock\index.ts
  * @Description  :
  *
@@ -24,6 +24,7 @@ Mock.mock('/api/user/chapter', 'get', user.getChapter)
 // staff
 Mock.mock('/api/user-manage/list', 'post', userManage.getUserList)
 Mock.mock('/api/user-manage/import', 'post', userManage.userBatchImport)
+Mock.mock('/api/user-manage/remove', 'post', userManage.removeUser)
 
 // article
 

@@ -11,4 +11,5 @@
 export interface IUserManageApi {
     getUserList: (query: any) => Promise<any>
     userBatchImport: (query: any) => Promise<any>
+    removeUser: (query: any) => Promise<any>
 }

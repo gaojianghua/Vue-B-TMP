@@ -167,6 +167,11 @@ let props = defineProps({
     total: {
         type: Number,
         default: 0
+    },
+    // loading 显示
+    isLoading: {
+        type: Boolean,
+        default: false
     }
 })
 
@@ -234,9 +239,6 @@ onMounted(() => {
 let tableOption = computed(() => props.options.filter((item) => !item.action))
 // 操作项
 let actionOption = computed(() => props.options.find((item) => item.action))
-
-// 是否在加载中
-let isLoading = computed(() => !props.data || !props.data.length)
 
 // 表格分页的排列方式
 let justifyContent = computed(() => {

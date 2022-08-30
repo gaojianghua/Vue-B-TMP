@@ -22,6 +22,7 @@
                 paginationAlign="center"
                 stripe
                 border
+                :isLoading="isLoading"
                 :total="total"
                 :currentPage="query.current"
                 :pageSize="query.pageSize"
@@ -61,10 +62,16 @@
                 <template #openTime="{ scope }">
                     {{ $filters.dateFilter(scope.row.openTime) }}
                 </template>
-                <template #action>
-                    <el-button size="small" type="primary">{{ $t('excel.show') }}</el-button>
-                    <el-button size="small" type="info">{{ $t('excel.showRole') }}</el-button>
-                    <el-button size="small" type="danger">{{ $t('excel.remove') }}</el-button>
+                <template #action="{ scope }">
+                    <el-button size="small" type="primary" @click="onShowInfo">{{
+                        $t('excel.show')
+                    }}</el-button>
+                    <el-button size="small" type="info" @click="onShowRole">{{
+                        $t('excel.showRole')
+                    }}</el-button>
+                    <el-button size="small" type="danger" @click="onRemoveUser(scope.row)">{{
+                        $t('excel.remove')
+                    }}</el-button>
                 </template>
             </g-table>
         </el-card>
@@ -77,6 +84,8 @@ import { userManageApi } from '@/api'
 import { IList } from '@/types/staff'
 import { watchSwitchLang } from '@/utils/routeI18n'
 import { useRouter } from 'vue-router'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { useI18n } from 'vue-i18n'
 const router = useRouter()
 
 let options: any[] = [
@@ -126,14 +135,15 @@ let options: any[] = [
         align: 'center'
     }
 ]
-let query = ref<IList>({
+const query = ref<IList>({
     current: 1,
     pageSize: 10,
     name: ''
 })
-let total = ref<number>(0)
-let editRowIndex = ref<string>('')
-let svg = `
+const isLoading = ref<boolean>(false)
+const total = ref<number>(0)
+const editRowIndex = ref<string>('')
+const svg = `
         <path class="path" d="
             M 30 15
             L 28 17
@@ -148,10 +158,12 @@ let svg = `
  * */
 const staffListData = ref([])
 const getUserListData = async () => {
+    isLoading.value = true
     const data = await userManageApi.getUserList({
         current: query.value.current,
         pageSize: query.value.pageSize
     })
+    isLoading.value = false
     staffListData.value = data.rows
     total.value = data.total
 }
@@ -171,6 +183,27 @@ const onImportExcelClick = () => {
 }
 // 导出按钮点击事件
 const onExportExcelClick = () => {}
+
+// 查看用户信息
+const onShowInfo = (info: any) => {}
+// 查看用户角色
+const onShowRole = (role: any) => {}
+// 删除用户
+const i18n = useI18n()
+const onRemoveUser = (row: any) => {
+    ElMessageBox.confirm(
+        i18n.t('excel.dialogTitle1') + row.username + i18n.t('excel.dialogTitle2'),
+        {
+            type: 'warning'
+        }
+    )
+        .then(async () => {
+            await userManageApi.removeUser({ id: row.id })
+            ElMessage.success(i18n.t('excel.removeSuccess'))
+            getUserListData()
+        })
+        .catch(() => {})
+}
 
 onMounted(() => {
     getUserListData()

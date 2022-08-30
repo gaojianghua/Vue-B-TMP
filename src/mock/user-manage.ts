@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-28 07:05:05
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-30 07:09:49
+ * @LastEditTime : 2022-08-30 08:20:45
  * @FilePath     : \web-B-tmp\src\mock\user-manage.ts
  * @Description  :
  *
@@ -79,6 +79,19 @@ export default {
             code: 200,
             data: '',
             msg: '上传成功'
+        }
+    },
+    removeUser: (params: any) => {
+        let { id } = JSON.parse(params.body)
+        staffList.forEach((item, i) => {
+            if (item.id === id) {
+                staffList.splice(i, 1)
+            }
+        })
+        return {
+            code: 200,
+            data: '',
+            msg: '删除成功'
         }
     }
 }
