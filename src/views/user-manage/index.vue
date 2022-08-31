@@ -31,7 +31,7 @@
                 @current-change="handleCurrentChange"
             >
                 <template #id="{ scope }">
-                    <span style="margin-left: 10px">{{ scope.row.id }}</span>
+                    <span>{{ scope.row.id }}</span>
                 </template>
                 <template #username="{ scope }">
                     {{ scope.row.username }}
@@ -63,7 +63,7 @@
                     {{ $filters.dateFilter(scope.row.openTime) }}
                 </template>
                 <template #action="{ scope }">
-                    <el-button size="small" type="primary" @click="onShowInfo">{{
+                    <el-button size="small" type="primary" @click="onShowInfo(scope.row.id)">{{
                         $t('excel.show')
                     }}</el-button>
                     <el-button size="small" type="info" @click="onShowRole">{{
@@ -75,6 +75,7 @@
                 </template>
             </g-table>
         </el-card>
+        <export-to-excel v-model="exportToExcelShow"></export-to-excel>
     </div>
 </template>
 
@@ -86,55 +87,59 @@ import { watchSwitchLang } from '@/utils/routeI18n'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useI18n } from 'vue-i18n'
-const router = useRouter()
+import ExportToExcel from './components/export-to-excel.vue'
 
-let options: any[] = [
-    {
-        prop: 'id',
-        label: '序号',
-        // width: '180',
-        align: 'center',
-        slot: 'id'
-    },
-    {
-        prop: 'username',
-        label: '姓名',
-        // width: '180',
-        align: 'center',
-        slot: 'username',
-        editable: true
-    },
-    {
-        prop: 'mobile',
-        label: '联系方式',
-        align: 'center',
-        slot: 'mobile',
-        editable: true
-    },
-    {
-        prop: 'avatar',
-        label: '头像',
-        align: 'center',
-        slot: 'avatar'
-    },
-    {
-        prop: 'role',
-        label: '角色',
-        align: 'center',
-        slot: 'role'
-    },
-    {
-        prop: 'openTime',
-        label: '开通时间',
-        align: 'center',
-        slot: 'openTime'
-    },
-    {
-        label: '操作',
-        action: true,
-        align: 'center'
-    }
-]
+const i18n = useI18n()
+const router = useRouter()
+let options = ref<any[]>([])
+const initOptions = () => {
+    options.value = [
+        {
+            prop: 'id',
+            label: i18n.t('excel.index'),
+            align: 'center',
+            slot: 'id'
+        },
+        {
+            prop: 'username',
+            label: i18n.t('excel.name'),
+            align: 'center',
+            slot: 'username',
+            editable: true
+        },
+        {
+            prop: 'mobile',
+            label: i18n.t('excel.mobile'),
+            align: 'center',
+            slot: 'mobile',
+            editable: true
+        },
+        {
+            prop: 'avatar',
+            label: i18n.t('excel.avatar'),
+            align: 'center',
+            slot: 'avatar'
+        },
+        {
+            prop: 'role',
+            label: i18n.t('excel.role'),
+            align: 'center',
+            slot: 'role'
+        },
+        {
+            prop: 'openTime',
+            label: i18n.t('excel.openTime'),
+            align: 'center',
+            slot: 'openTime'
+        },
+        {
+            label: '操作',
+            action: true,
+            align: 'center'
+        }
+    ]
+}
+initOptions()
 const query = ref<IList>({
     current: 1,
     pageSize: 10,
@@ -182,14 +187,18 @@ const onImportExcelClick = () => {
     router.push('/user/import')
 }
 // 导出按钮点击事件
-const onExportExcelClick = () => {}
+const exportToExcelShow = ref<boolean>(false)
+const onExportExcelClick = () => {
+    exportToExcelShow.value = true
+}
 
 // 查看用户信息
-const onShowInfo = (info: any) => {}
+const onShowInfo = (id: number) => {
+    router.push(`/user/info/${id}`)
+}
 // 查看用户角色
 const onShowRole = (role: any) => {}
 // 删除用户
-const i18n = useI18n()
 const onRemoveUser = (row: any) => {
     ElMessageBox.confirm(
         i18n.t('excel.dialogTitle1') + row.username + i18n.t('excel.dialogTitle2'),
@@ -208,8 +217,12 @@ const onRemoveUser = (row: any) => {
 onMounted(() => {
     getUserListData()
 })
-watchSwitchLang(getUserListData)
+watchSwitchLang(getUserListData, initOptions)
 onActivated(getUserListData)
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.el-table .el-table__cell {
+    z-index: 0;
+}
+</style>

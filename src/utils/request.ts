@@ -69,9 +69,10 @@ interface Http {
 const http: Http = {
     get(url, params) {
         return new Promise((resolve, reject) => {
+            const query = typeof params === 'object' ? { params } : (params as AxiosRequestConfig)
             NProgress.start()
             server
-                .get(url, { params })
+                .get(url, query)
                 .then((res) => {
                     NProgress.done()
                     resolve(res.data)
@@ -114,9 +115,10 @@ const http: Http = {
     },
     remove(url, params) {
         return new Promise((resolve, reject) => {
+            const query = typeof params === 'object' ? { params } : (params as AxiosRequestConfig)
             NProgress.start()
             server
-                .delete(url, { params })
+                .delete(url, query)
                 .then((res) => {
                     NProgress.done()
                     resolve(res.data)

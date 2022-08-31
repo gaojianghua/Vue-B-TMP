@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-30 08:20:23
+ * @LastEditTime : 2022-08-31 02:41:55
  * @FilePath     : \web-B-tmp\src\api\user-manage\index.ts
  * @Description  :
  *
@@ -16,6 +16,10 @@ const userManageApi: T.IUserManageApi = {
     getUserList(query) {
         return http.post('/user-manage/list', query)
     },
+    // 获取所有员工列表
+    getAllUserList() {
+        return http.get('/user-manage/list/all')
+    },
     // 批量上传
     userBatchImport(query) {
         return http.post('/user-manage/import', query)
@@ -23,6 +27,18 @@ const userManageApi: T.IUserManageApi = {
     // 删除员工
     removeUser(query) {
         return http.post('/user-manage/remove', query)
+    },
+    // 获取员工详情信息
+    getUserDetail(query) {
+        return http.get('/user-manage/detail/:id', query)
+    },
+    // 获取角色列表
+    getRoleList() {
+        return http.get('/user-manage/role/list')
+    },
+    // 获取权限列表
+    getPermissionList() {
+        return http.get('/user-manage/permission/list')
     }
 }
 export default userManageApi

@@ -23,6 +23,7 @@ import GTwoUI from './secondary'
 import App from './App.vue'
 import './mock'
 import filters from '@/filters'
+import directives from '@/directives'
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
@@ -30,6 +31,7 @@ pinia.use(piniaPluginPersistedstate)
 const app = createApp(App)
 
 filters(app)
+directives(app)
 
 app.use(router)
 app.use(pinia)

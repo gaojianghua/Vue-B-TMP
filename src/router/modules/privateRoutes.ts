@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-29 06:32:48
+ * @LastEditTime : 2022-08-31 02:45:11
  * @FilePath     : \web-B-tmp\src\router\modules\privateRoutes.ts
  * @Description  :
  *
@@ -50,6 +50,10 @@ export default [
             {
                 path: '/user/info/:id',
                 name: 'userInfo',
+                props: true,
+                meta: {
+                    title: 'userInfo'
+                },
                 component: () => import('@/views/user-info/index.vue')
             },
             {

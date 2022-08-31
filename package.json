@@ -26,6 +26,7 @@
     "driver.js": "^0.9.8",
     "echarts": "^5.3.3",
     "element-plus": "^2.2.14",
+    "file-saver": "^2.0.5",
     "fuse.js": "^6.6.2",
     "md5": "^2.3.0",
     "mockjs": "^1.1.0",
@@ -37,10 +38,12 @@
     "vue": "^3.2.37",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.4",
+    "vue3-print-nb": "^0.1.4",
     "wangeditor": "4.7.9",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.5",
     "@types/md5": "^2.3.2",
     "@types/mockjs": "^1.0.6",
     "@types/node": "^18.7.11",

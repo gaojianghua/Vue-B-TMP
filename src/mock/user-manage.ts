@@ -2,12 +2,13 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-28 07:05:05
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-30 08:20:45
+ * @LastEditTime : 2022-08-31 02:42:49
  * @FilePath     : \web-B-tmp\src\mock\user-manage.ts
  * @Description  :
  *
  * Copyright (c) 2022 by 高江华 g598670138@163.com, All Rights Reserved.
  */
+import { userDetail, roleList, permissionList } from './data'
 let staffList = [
     {
         role: [
@@ -16,7 +17,7 @@ let staffList = [
                 title: '超级管理员'
             }
         ],
-        id: 0,
+        id: 1,
         username: 'super-admin',
         openTime: '1661718913895',
         mobile: '188xxxx0002',
@@ -29,7 +30,7 @@ let staffList = [
                 title: '管理员'
             }
         ],
-        id: 1,
+        id: 2,
         username: 'admin',
         openTime: '1661718913895',
         mobile: '188xxxx0002',
@@ -37,9 +38,10 @@ let staffList = [
     }
 ]
 
-let oldId = -1
+let oldId = 0
 
 export default {
+    // 获取员工列表
     getUserList: (params: any) => {
         let info = JSON.parse(params.body)
         let [index, size, total] = [info.current, info.pageSize, staffList.length]
@@ -59,6 +61,13 @@ export default {
             }
         }
     },
+    // 获取所有员工数据
+    getAllUserList: () => ({
+        code: 200,
+        message: '获取成功',
+        data: staffList
+    }),
+    // 导出所有员工到excel
     userBatchImport: (params: any) => {
         let info = JSON.parse(params.body)
         info.forEach((item: any) => {
@@ -81,6 +90,7 @@ export default {
             msg: '上传成功'
         }
     },
+    // 删除某个员工
     removeUser: (params: any) => {
         let { id } = JSON.parse(params.body)
         staffList.forEach((item, i) => {
@@ -92,6 +102,30 @@ export default {
             code: 200,
             data: '',
             msg: '删除成功'
+        }
+    },
+    // 获取员工详情信息
+    getUserDetail: (params: any) => {
+        return {
+            code: 200,
+            data: userDetail,
+            msg: '获取成功'
+        }
+    },
+    // 获取角色列表
+    getRoleList: () => {
+        return {
+            code: 200,
+            data: roleList,
+            msg: '获取成功'
+        }
+    },
+    // 获取权限列表
+    getPermissionList: () => {
+        return {
+            code: 200,
+            data: permissionList,
+            msg: '获取成功'
         }
     }
 }

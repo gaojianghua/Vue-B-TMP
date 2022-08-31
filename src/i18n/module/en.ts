@@ -119,6 +119,7 @@ export default {
         drop: 'Drag files here'
     },
     excel: {
+        index: 'Serial number',
         importExcel: 'excel import',
         exportExcel: 'excel export',
         exportZip: 'zip export',

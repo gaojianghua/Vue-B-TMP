@@ -23,8 +23,12 @@ Mock.mock('/api/user/chapter', 'get', user.getChapter)
 
 // staff
 Mock.mock('/api/user-manage/list', 'post', userManage.getUserList)
+Mock.mock('/api/user-manage/list/all', 'get', userManage.getAllUserList)
 Mock.mock('/api/user-manage/import', 'post', userManage.userBatchImport)
 Mock.mock('/api/user-manage/remove', 'post', userManage.removeUser)
+Mock.mock('/api/user-manage/detail/:id', 'get', userManage.getUserDetail)
+Mock.mock('/api/user-manage/role/list', 'get', userManage.getRoleList)
+Mock.mock('/api/user-manage/permission/list', 'get', userManage.getPermissionList)
 
 // article
 

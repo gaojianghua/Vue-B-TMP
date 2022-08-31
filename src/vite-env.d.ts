@@ -18,3 +18,4 @@ declare module '*.vue' {
 declare module 'wangeditor'
 declare module 'css-color-function'
 declare module 'fuse.js'
+declare module 'vue3-print-nb'

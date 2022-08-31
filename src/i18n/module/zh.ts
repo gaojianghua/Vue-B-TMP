@@ -119,6 +119,7 @@ export default {
         drop: '将文件拖到此处'
     },
     excel: {
+        index: '序号',
         importExcel: 'excel 导入',
         exportExcel: 'excel 导出',
         exportZip: 'zip 导出',

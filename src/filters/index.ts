@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-29 04:08:11
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-30 07:08:52
+ * @LastEditTime : 2022-08-31 01:35:07
  * @FilePath     : \web-B-tmp\src\filters\index.ts
  * @Description  :
  *
@@ -19,8 +19,8 @@ declare module '@vue/runtime-core' {
 import { App } from 'vue'
 import dayjs from 'dayjs'
 
-const dateFilter = (val: string, format = 'YYYY-MM-DD') => {
-    if (val.indexOf('-') > -1) {
+export const dateFilter = (val: string, format = 'YYYY-MM-DD') => {
+    if (String(val).indexOf('-') > -1) {
         return val
     }
     return dayjs(Number(val)).format(format)

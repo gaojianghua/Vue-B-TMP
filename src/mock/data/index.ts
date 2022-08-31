@@ -44,3 +44,136 @@ export let chapter = [
         content: '145623'
     }
 ]
+
+export let userDetail = {
+    role: [
+        {
+            id: 0,
+            title: '超级管理员'
+        }
+    ],
+    remark: ['超级管理员', 'BOSS'],
+    experience: [
+        {
+            startTime: '1538235689000',
+            endTime: '1558235689000',
+            title: '拿好货',
+            desc: '女装批发商城'
+        },
+        {
+            startTime: '1538235689000',
+            endTime: '1558235689000',
+            title: '迦迦欢',
+            desc: '大型多元化游戏武侠风商城'
+        }
+    ],
+    id: 0,
+    openTime: '1433088000000',
+    username: 'super-admin',
+    title: '超级管理员',
+    mobile: '15257184434',
+    avatar: 'https://gaojianghua.oss-cn-hangzhou.aliyuncs.com/home/gaojianghua.jpg',
+    gender: '男',
+    nationality: '汉',
+    address: '杭州市拱墅区墩祥街长阳路都市水乡水涟苑 8 幢 2 单 501',
+    province: '杭州',
+    major: '电子商务',
+    glory: '初中数学模拟考满分'
+}
+
+export let roleList = [
+    {
+        id: 1,
+        rolename: '超级管理员',
+        desc: '唯一账号, 可以操作系统所有功能'
+    },
+    {
+        id: 2,
+        rolename: '管理员',
+        desc: '由超管指定, 可以为多个, 协助超管管理系统'
+    },
+    {
+        id: 3,
+        rolename: '人事经理',
+        desc: '主管人事相关业务'
+    },
+    {
+        id: 4,
+        rolename: '销售经理',
+        desc: '主管销售相关业务'
+    },
+    {
+        id: 5,
+        rolename: '保安队长',
+        desc: '主管安保相关业务'
+    },
+    {
+        id: 6,
+        rolename: '员工',
+        desc: '普通员工'
+    }
+]
+
+export let permissionList = [
+    {
+        id: '1',
+        permissionName: '员工管理',
+        permissionMark: 'userManage',
+        permissionDesc: '员工管理菜单',
+        children: [
+            {
+                id: '1-1',
+                permissionName: '分配角色',
+                permissionMark: 'distributeRole',
+                permissionDesc: '为员工分配角色'
+            },
+            {
+                id: '1-2',
+                permissionName: '导入员工',
+                permissionMark: 'importUser',
+                permissionDesc: '通过 excel 导入员工'
+            },
+            {
+                id: '1-3',
+                permissionName: '删除员工',
+                permissionMark: 'removeUser',
+                permissionDesc: '删除员工'
+            }
+        ]
+    },
+    {
+        id: '2',
+        permissionName: '角色列表',
+        permissionMark: 'roleList',
+        permissionDesc: '角色列表菜单',
+        children: [
+            {
+                id: '2-1',
+                permissionName: '分配权限',
+                permissionMark: 'distributePermission',
+                permissionDesc: '为角色分配权限'
+            }
+        ]
+    },
+    {
+        id: '3',
+        permissionName: '权限列表',
+        permissionMark: 'permissionList',
+        permissionDesc: '权限列表菜单',
+        children: []
+    },
+    {
+        id: '4',
+        permissionName: '文章排名',
+        permissionMark: 'articleRanking',
+        permissionDesc: '文章排名菜单',
+        children: []
+    },
+    {
+        id: '5',
+        permissionName: '创建文章',
+        permissionMark: 'articleCreate',
+        permissionDesc: '创建文章页面',
+        children: []
+    }
+]

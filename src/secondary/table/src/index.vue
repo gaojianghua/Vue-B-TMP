@@ -46,22 +46,21 @@
                             </div>
                         </template>
                         <template v-else>
-                            <div class="center">
-                                <slot v-if="item.slot" :name="item.slot" :scope="scope"></slot>
-                                <span v-else>{{ scope.row[item.prop!] }}</span>
-                                <component
-                                    :is="`el-icon-${toLine(editIcon)}`"
-                                    class="edit"
-                                    v-if="item.editable"
-                                    @click.stop="clickEditIcon(scope)"
-                                ></component>
-                            </div>
+                            <slot v-if="item.slot" :name="item.slot" :scope="scope"></slot>
+                            <span v-else>{{ scope.row[item.prop!] }}</span>
+                            <component
+                                :is="`el-icon-${toLine(editIcon)}`"
+                                class="edit"
+                                v-if="item.editable"
+                                @click.stop="clickEditIcon(scope)"
+                            ></component>
                         </template>
                     </template>
                 </template>
             </el-table-column>
         </template>
         <el-table-column
+            v-if="actionOption"
             :label="actionOption!.label"
             :width="actionOption!.width"
             :align="actionOption!.align"
@@ -268,6 +267,8 @@ let close = (scope: any) => {
 
 // 点击行的事件
 let rowClick = (row: any, column: any) => {
+    // console.log(column.label, actionOption.value!.label)
+    if (!actionOption.value) return
     // 判断是否是点击的操作项
     if (column.label === actionOption.value!.label) {
         if (props.isEditRow && cloneEditRowIndex.value === props.editRowIndex) {
@@ -288,10 +289,9 @@ let rowClick = (row: any, column: any) => {
 .edit {
     width: 1em;
     height: 1em;
-    position: relative;
-    top: 2px;
-    left: 12px;
+    margin-left: 8px;
     cursor: pointer;
+    display: inline-block;
 }
 .action-icon {
     display: flex;
@@ -318,5 +318,8 @@ let rowClick = (row: any, column: any) => {
     display: flex;
     align-items: baseline;
     justify-content: center;
+}
+.cell {
+    display: flex;
 }
 </style>

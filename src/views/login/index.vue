@@ -1,12 +1,6 @@
 <template>
     <div class="login-container">
-        <el-form
-            class="login-form"
-            ref="ruleFormRef"
-            :model="form"
-            :rules="rules"
-            label-width="auto"
-        >
+        <el-form class="login-form" ref="ruleFormRef" :model="form" :rules="rules">
             <div class="flex justify-center items-center mb-8">
                 <img src="@/assets/images/logo.png" alt="" />
             </div>
