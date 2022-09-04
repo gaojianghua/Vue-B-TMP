@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-28 07:05:05
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-31 02:42:49
+ * @LastEditTime : 2022-09-02 16:36:03
  * @FilePath     : \web-B-tmp\src\mock\user-manage.ts
  * @Description  :
  *
@@ -38,6 +38,17 @@ let staffList = [
     }
 ]
 
+let userRoles = {
+    role: [
+        {
+            id: 2,
+            title: '管理员'
+        }
+    ]
+}
+
+let roleInPermission = ['1', '2-1', '2-2', '3']
+
 let oldId = 0
 
 export default {
@@ -51,7 +62,7 @@ export default {
         let newDataList = staffList.slice(index * size, (index + 1) * size)
         return {
             code: 200,
-            message: '获取成功',
+            msg: '获取成功',
             data: {
                 current: index,
                 pageSize: size,
@@ -64,7 +75,7 @@ export default {
     // 获取所有员工数据
     getAllUserList: () => ({
         code: 200,
-        message: '获取成功',
+        msg: '获取成功',
         data: staffList
     }),
     // 导出所有员工到excel
@@ -126,6 +137,47 @@ export default {
             code: 200,
             data: permissionList,
             msg: '获取成功'
+        }
+    },
+    // 获取用户当前角色
+    getUserRole: (params: any) => {
+        return {
+            code: 200,
+            data: userRoles,
+            msg: '获取成功'
+        }
+    },
+    // 给用户分配角色
+    updateUserRole: (params: any) => {
+        let { userId, roles } = JSON.parse(params.body)
+        userRoles.role = roles
+        staffList.forEach((item) => {
+            if (userId === item.id) {
+                item.role = roles
+            }
+        })
+        return {
+            code: 200,
+            data: '',
+            msg: '分配成功'
+        }
+    },
+    // 获取当前角色对应权限
+    getRoleInPermission: (params: any) => {
+        return {
+            code: 200,
+            data: roleInPermission,
+            msg: '获取成功'
+        }
+    },
+    // 给角色分配权限
+    updateRolePermission: (params: any) => {
+        let { roleId, permissions } = JSON.parse(params.body)
+        roleInPermission = permissions
+        return {
+            code: 200,
+            data: '',
+            msg: '分配成功'
         }
     }
 }

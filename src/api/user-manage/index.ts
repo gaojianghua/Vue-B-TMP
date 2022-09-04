@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-31 02:41:55
+ * @LastEditTime : 2022-09-01 07:56:01
  * @FilePath     : \web-B-tmp\src\api\user-manage\index.ts
  * @Description  :
  *
@@ -39,6 +39,22 @@ const userManageApi: T.IUserManageApi = {
     // 获取权限列表
     getPermissionList() {
         return http.get('/user-manage/permission/list')
+    },
+    // 获取用户当前角色
+    getUserRole(query) {
+        return http.get('/user-manage/role/:id', query)
+    },
+    // 为用户分配角色
+    updateUserRole(query) {
+        return http.post('/user-manage/role/update', query)
+    },
+    // 获取当前角色对应权限
+    getRoleInPermission(query) {
+        return http.get('/user-manage/role/permission/:id', query)
+    },
+    // 为用户分配角色
+    updateRolePermission(query) {
+        return http.post('/user-manage/permission/update', query)
     }
 }
 export default userManageApi

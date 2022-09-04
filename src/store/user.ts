@@ -2,21 +2,28 @@ import { defineStore } from 'pinia'
 import MD5 from 'md5'
 import { systemApi, userApi } from '@/api'
 import { ElMessage } from 'element-plus'
-import router from '@/router'
+import router, { resetRouter } from '@/router'
 import { setTimeStamp } from '@/utils/author'
-import { removeAllItem } from '@/utils/storage'
+import { getItem, removeAllItem, setItem } from '@/utils/storage'
 
 const useUserStore = defineStore('user', {
     state: () => {
         return {
-            token: <string>'',
+            token: getItem('token') || <string>'',
             userInfo: <any>{}
+        }
+    },
+    getters: {
+        hasUserInfo(state) {
+            console.log(123)
+            return JSON.stringify(state.userInfo) !== '{}'
         }
     },
     actions: {
         // 保存 token
         setToken(newToken: string) {
             this.token = newToken
+            setItem('token', newToken)
         },
         // 登录
         async login(query: any) {
@@ -42,29 +49,21 @@ const useUserStore = defineStore('user', {
         // 保存用户信息
         setUserInfo(newUserInfo: any) {
             this.userInfo = newUserInfo
+            setItem('userInfo', newUserInfo)
         },
         // 获取用户信息
         async getProfile() {
             const data = await userApi.getProfile()
             this.setUserInfo(data)
+            return data
         },
         // 退出登录
         logout() {
+            resetRouter()
             this.setToken('')
             this.setUserInfo({})
             removeAllItem()
             router.push('/login')
-        }
-    },
-    persist: {
-        key: 'user',
-        storage: window.localStorage,
-        paths: ['token', 'userInfo'],
-        beforeRestore: (context) => {
-            //console.log('Before hydration...:' + context)
-        },
-        afterRestore: (context) => {
-            //console.log('After hydration...:' + context)
         }
     }
 })

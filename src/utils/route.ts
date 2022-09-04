@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-29 05:32:26
+ * @LastEditTime : 2022-09-04 11:53:04
  * @FilePath     : \web-B-tmp\src\utils\route.ts
  * @Description  :
  *
@@ -44,7 +44,9 @@ export const filterRoutes = (routes: any) => {
  */
 export const generateMenus = (routes: any) => {
     const result = <any>[]
-    routes.forEach((item: any) => {
+    let num = 0
+    let path = ''
+    routes.forEach((item: any, i: number) => {
         // 不存在 children && 不存在 meta 直接 return
         if (isNull(item.children) && isNull(item.meta)) return
         // 存在 children, 不存在meta, 迭代 generateMenus
@@ -59,13 +61,18 @@ export const generateMenus = (routes: any) => {
             index: item.path,
             children: []
         }
-        if (item.meta.icon && item.meta.title) {
+        if (item.meta.icon && item.meta.title && item.path !== path) {
             result.push(route)
+        }
+        if (!isNull(item.children) && item.path === path) {
+            num++
+            result[i - num].children.push(...generateMenus(item.children))
         }
         // 存在 children && 存在 meta
         if (!isNull(item.children)) {
             route.children.push(...generateMenus(item.children))
         }
+        path = item.path
     })
 
     return result

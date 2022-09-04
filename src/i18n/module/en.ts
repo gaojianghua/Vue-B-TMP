@@ -106,7 +106,7 @@ export default {
         nation: 'nationality',
         mobile: 'phone number',
         province: 'Place of residence',
-        date: 'Entry Time',
+        date: 'Work Time',
         remark: 'Remark',
         address: 'contact address',
         experience: 'Experience',

@@ -5,7 +5,11 @@ export let profile = {
     company: '',
     introduction: '我自横刀向天笑, 去留肝胆两昆仑',
     homePage: 'https://gaojianghua.cn/doce',
-    avatar: 'https://gaojianghua.oss-cn-hangzhou.aliyuncs.com/home/%E7%81%B0%E5%A4%AA%E7%8B%BC.png'
+    avatar: 'https://gaojianghua.oss-cn-hangzhou.aliyuncs.com/home/%E7%81%B0%E5%A4%AA%E7%8B%BC.png',
+    permission: {
+        menus: ['userManage', 'roleList', 'permissionList', 'articleRanking', 'articleCreate'],
+        points: ['distributeRole', 'importUser', 'removeUser', 'distributePermission']
+    }
 }
 
 export let feature = [
@@ -68,8 +72,8 @@ export let userDetail = {
         }
     ],
     id: 0,
-    openTime: '1433088000000',
-    username: 'super-admin',
+    openTime: '1533088000000',
+    username: '高江华',
     title: '超级管理员',
     mobile: '15257184434',
     avatar: 'https://gaojianghua.oss-cn-hangzhou.aliyuncs.com/home/gaojianghua.jpg',
@@ -84,32 +88,32 @@ export let userDetail = {
 export let roleList = [
     {
         id: 1,
-        rolename: '超级管理员',
+        title: '超级管理员',
         desc: '唯一账号, 可以操作系统所有功能'
     },
     {
         id: 2,
-        rolename: '管理员',
+        title: '管理员',
         desc: '由超管指定, 可以为多个, 协助超管管理系统'
     },
     {
         id: 3,
-        rolename: '人事经理',
+        title: '人事经理',
         desc: '主管人事相关业务'
     },
     {
         id: 4,
-        rolename: '销售经理',
+        title: '销售经理',
         desc: '主管销售相关业务'
     },
     {
         id: 5,
-        rolename: '保安队长',
+        title: '保安队长',
         desc: '主管安保相关业务'
     },
     {
         id: 6,
-        rolename: '员工',
+        title: '员工',
         desc: '普通员工'
     }
 ]

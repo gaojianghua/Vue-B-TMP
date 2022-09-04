@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-30 08:20:17
+ * @LastEditTime : 2022-09-01 07:57:56
  * @FilePath     : \web-B-tmp\src\mock\index.ts
  * @Description  :
  *
@@ -12,6 +12,7 @@ import Mock from 'mockjs'
 import system from './system'
 import user from './user'
 import userManage from './user-manage'
+import article from './article'
 
 // system
 Mock.mock('/api/system/login', 'post', system.login)
@@ -29,7 +30,12 @@ Mock.mock('/api/user-manage/remove', 'post', userManage.removeUser)
 Mock.mock('/api/user-manage/detail/:id', 'get', userManage.getUserDetail)
 Mock.mock('/api/user-manage/role/list', 'get', userManage.getRoleList)
 Mock.mock('/api/user-manage/permission/list', 'get', userManage.getPermissionList)
+Mock.mock('/api/user-manage/role/:id', 'get', userManage.getUserRole)
+Mock.mock('/api/user-manage/role/update', 'post', userManage.updateUserRole)
+Mock.mock('/api/user-manage/role/permission/:id', 'get', userManage.getRoleInPermission)
+Mock.mock('/api/user-manage/permission/update', 'post', userManage.updateRolePermission)
 
 // article
+Mock.mock('/api/article/list', 'post', article.getArticleList)
 
 export default Mock

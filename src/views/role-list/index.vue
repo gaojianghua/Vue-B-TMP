@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-01 04:34:54
+ * @LastEditTime : 2022-09-01 07:44:35
  * @FilePath     : \web-B-tmp\src\views\role-list\index.vue
  * @Description  : 
  * 
@@ -25,19 +25,27 @@
                 <template #id="{ scope }">
                     <span>{{ scope.row.id }}</span>
                 </template>
-                <template #rolename="{ scope }">
-                    <span>{{ scope.row.rolename }}</span>
+                <template #title="{ scope }">
+                    <span>{{ scope.row.title }}</span>
                 </template>
                 <template #desc="{ scope }">
                     <span>{{ scope.row.desc }}</span>
                 </template>
-                <template #action>
-                    <el-button size="small" type="primary">{{
-                        $t('role.assignPermissions')
-                    }}</el-button>
+                <template #action="{ scope }">
+                    <el-button
+                        size="small"
+                        type="primary"
+                        v-permission="['distributePermission']"
+                        @click="onOpenDistributionDialog(scope.row)"
+                        >{{ $t('role.assignPermissions') }}</el-button
+                    >
                 </template>
             </g-table>
         </el-card>
+        <distribution-role-vue
+            v-model="distributionVisible"
+            :roleId="String(roleId)"
+        ></distribution-role-vue>
     </div>
 </template>
 
@@ -46,9 +54,13 @@ import { ref } from 'vue'
 import { userManageApi } from '@/api'
 import { watchSwitchLang } from '@/utils/routeI18n'
 import { useI18n } from 'vue-i18n'
+import distributionRoleVue from './components/distribution-role.vue'
 
 const i18n = useI18n()
 const isLoading = ref<boolean>(false)
+// 控制dialog显示
+const distributionVisible = ref<boolean>(false)
+// table配置
 let options = ref<any[]>([])
 const initOptions = () => {
     options.value = [
@@ -59,10 +71,10 @@ const initOptions = () => {
             slot: 'id'
         },
         {
-            prop: 'rolename',
+            prop: 'title',
             label: i18n.t('role.name'),
             align: 'center',
-            slot: 'rolename'
+            slot: 'title'
         },
         {
             prop: 'desc',
@@ -97,6 +109,12 @@ const getRoleList = async () => {
 }
 getRoleList()
 watchSwitchLang(getRoleList, initOptions)
+// 分配权限
+const roleId = ref<String>('')
+const onOpenDistributionDialog = (row: any) => {
+    distributionVisible.value = true
+    roleId.value = row.id
+}
 </script>
 
 <style lang="scss" scoped></style>

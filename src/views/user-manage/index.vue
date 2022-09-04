@@ -2,9 +2,12 @@
     <div class="">
         <el-card>
             <div class="text-right">
-                <el-button type="primary" @click="onImportExcelClick">{{
-                    $t('excel.importExcel')
-                }}</el-button>
+                <el-button
+                    type="primary"
+                    @click="onImportExcelClick"
+                    v-permission="['importUser']"
+                    >{{ $t('excel.importExcel') }}</el-button
+                >
                 <el-button type="success" @click="onExportExcelClick">{{
                     $t('excel.exportExcel')
                 }}</el-button>
@@ -66,21 +69,34 @@
                     <el-button size="small" type="primary" @click="onShowInfo(scope.row.id)">{{
                         $t('excel.show')
                     }}</el-button>
-                    <el-button size="small" type="info" @click="onShowRole">{{
-                        $t('excel.showRole')
-                    }}</el-button>
-                    <el-button size="small" type="danger" @click="onRemoveUser(scope.row)">{{
-                        $t('excel.remove')
-                    }}</el-button>
+                    <el-button
+                        size="small"
+                        type="info"
+                        @click="onShowRole(scope.row.id)"
+                        v-permission="['distributeRole']"
+                        >{{ $t('excel.showRole') }}</el-button
+                    >
+                    <el-button
+                        size="small"
+                        type="danger"
+                        @click="onRemoveUser(scope.row)"
+                        v-permission="['removeUser']"
+                        >{{ $t('excel.remove') }}</el-button
+                    >
                 </template>
             </g-table>
         </el-card>
         <export-to-excel v-model="exportToExcelShow"></export-to-excel>
+        <roles-vue
+            v-model="roleDialogVisible"
+            :userId="userId"
+            @updateRole="getUserListData"
+        ></roles-vue>
     </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, onActivated } from 'vue'
+import { onMounted, ref, onActivated, watch } from 'vue'
 import { userManageApi } from '@/api'
 import { IList } from '@/types/staff'
 import { watchSwitchLang } from '@/utils/routeI18n'
@@ -88,9 +104,15 @@ import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useI18n } from 'vue-i18n'
 import ExportToExcel from './components/export-to-excel.vue'
+import rolesVue from './components/roles.vue'
 
 const i18n = useI18n()
 const router = useRouter()
+// 用户ID
+const userId = ref<number>(0)
+// 控制dialog显示
+const roleDialogVisible = ref<boolean>(false)
+// table头部配置
 let options = ref<any[]>([])
 const initOptions = () => {
     options.value = [
@@ -133,7 +155,7 @@ const initOptions = () => {
             slot: 'openTime'
         },
         {
-            label: '操作',
+            label: i18n.t('excel.action'),
             action: true,
             align: 'center'
         }
@@ -197,7 +219,10 @@ const onShowInfo = (id: number) => {
     router.push(`/user/info/${id}`)
 }
 // 查看用户角色
-const onShowRole = (role: any) => {}
+const onShowRole = (id: number) => {
+    roleDialogVisible.value = true
+    userId.value = id
+}
 // 删除用户
 const onRemoveUser = (row: any) => {
     ElMessageBox.confirm(
@@ -213,6 +238,9 @@ const onRemoveUser = (row: any) => {
         })
         .catch(() => {})
 }
+watch(roleDialogVisible, (val) => {
+    if (!val) userId.value = 0
+})
 
 onMounted(() => {
     getUserListData()

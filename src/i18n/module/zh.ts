@@ -106,7 +106,7 @@ export default {
         nation: '民族',
         mobile: '手机号',
         province: '居住地',
-        date: '入职时间',
+        date: '工作时间',
         remark: '备注',
         address: '联系地址',
         experience: '经历',

@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-29 06:38:02
+ * @LastEditTime : 2022-09-04 11:15:29
  * @FilePath     : \web-B-tmp\src\router\guards.ts
  * @Description  :
  *
@@ -11,7 +11,6 @@
 import router from './index'
 import useStore from '@/store'
 import { isNull } from '@/utils/conversion'
-
 // 白名单
 const whiteList = ['/login']
 
@@ -29,8 +28,17 @@ router.beforeEach(async (to, from, next) => {
             next('/')
         } else {
             // 判断用户信息是否存在
-            if (isNull(useStore().user.userInfo)) {
-                await useStore().user.getProfile()
+            if (!useStore().user.hasUserInfo) {
+                console.log('11')
+                const { permission } = await useStore().user.getProfile()
+                // 处理用户权限
+                const filterRoutes = await useStore().permission.filterRoutes(permission.menus)
+                // 循环添加动态路由
+                filterRoutes.forEach((item: any, i: number) => {
+                    router.addRoute(item)
+                })
+                // 添加完成路由后, 需要进行一次主动跳转
+                return next(to.path)
             }
             next()
         }
