@@ -23,19 +23,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { articleApi } from '@/api'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 // 获取数据
 const route = useRoute()
+const router = useRouter()
 const articleId = route.params.id
 const articleDetail = ref<any>({})
 const getArticleDetail = async () => {
-    articleDetail.value = await articleApi.getArticleDetail(articleId)
+    articleDetail.value = await articleApi.getArticleDetail({ id: articleId })
 }
 getArticleDetail()
 
 // 编辑
-const onEditArticle = () => {}
+const onEditArticle = () => {
+    router.push(`/article/editor/${articleId}`)
+}
 </script>
 
 <style lang="scss" scoped>

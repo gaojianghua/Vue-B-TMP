@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-09-02 16:32:21
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-05 12:09:46
+ * @LastEditTime : 2022-09-05 14:02:43
  * @FilePath     : \web-B-tmp\src\mock\article.ts
  * @Description  :
  *
@@ -16,7 +16,8 @@ let articleList = [
         title: 'ESlint + Git Hooks',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '编码规范'
+        desc: '编码规范',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 2,
@@ -24,7 +25,8 @@ let articleList = [
         title: 'Tags View',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '便签快捷导航功能'
+        desc: '便签快捷导航功能',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 3,
@@ -32,7 +34,8 @@ let articleList = [
         title: 'Element Plus',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '基于 Vue 3.0 的桌面端组件库'
+        desc: '基于 Vue 3.0 的桌面端组件库',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 4,
@@ -40,7 +43,8 @@ let articleList = [
         title: '侧边栏',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '根据路由动态生成的 menu 菜单'
+        desc: '根据路由动态生成的 menu 菜单',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 5,
@@ -48,7 +52,8 @@ let articleList = [
         title: '动态面包屑',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '动态生成的面包屑数据'
+        desc: '动态生成的面包屑数据',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 6,
@@ -56,7 +61,8 @@ let articleList = [
         title: '权限验证',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '页面权限, 功能权限, 动态权限, 权限配置'
+        desc: '页面权限, 功能权限, 动态权限, 权限配置',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 7,
@@ -64,7 +70,8 @@ let articleList = [
         title: 'Web-B-Tmp',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '后台前端解决方案'
+        desc: '后台前端解决方案',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 8,
@@ -72,7 +79,8 @@ let articleList = [
         title: 'Vue3 + 全家桶',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '项目基于最新的vue3全家桶进行开发'
+        desc: '项目基于最新的vue3全家桶进行开发',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 9,
@@ -80,7 +88,8 @@ let articleList = [
         title: '功能引导',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '对用户的功能引导'
+        desc: '对用户的功能引导',
+        content: `<p>你们都是大傻逼</p>`
     },
     {
         id: 10,
@@ -88,16 +97,10 @@ let articleList = [
         title: '架构设计',
         author: '灰太狼',
         publicDate: '1661718913895',
-        desc: '架构设计'
+        desc: '架构设计',
+        content: `<p>你们都是大傻逼</p>`
     }
 ]
-
-let articleDetail = {
-    title: '架构设计',
-    author: '灰太狼',
-    publicDate: '1661718913895',
-    content: `<p>你们都是大傻逼</p>`
-}
 
 export default {
     getArticleList: (params: any) => {
@@ -155,10 +158,49 @@ export default {
         }
     },
     getArticleDetail: (params: any) => {
+        console.log(params)
+        let { id } = JSON.parse(params.body)
+        let articleDetail = articleList[id - 1]
         return {
             code: 200,
             data: articleDetail,
             msg: '获取成功'
+        }
+    },
+    createArticle: (params: any) => {
+        let { title, content } = JSON.parse(params.body)
+        let article: any = {
+            title,
+            content,
+            id: articleList.length + 1,
+            ranking: articleList.length + 1,
+            desc: content.slice(0, 10),
+            author: '灰太狼',
+            publicDate: new Date().getTime()
+        }
+        articleList.push(article)
+        return {
+            code: 200,
+            data: '',
+            msg: '创建成功'
+        }
+    },
+    updateArticle: (params: any) => {
+        let { id, title, content } = JSON.parse(params.body)
+        articleList.forEach((item) => {
+            if (item.id === id) {
+                item = {
+                    ...item,
+                    title,
+                    content,
+                    publicDate: new Date().getTime()
+                } as any
+            }
+        })
+        return {
+            code: 200,
+            data: '',
+            msg: '修改成功'
         }
     }
 }

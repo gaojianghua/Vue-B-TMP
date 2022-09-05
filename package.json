@@ -17,6 +17,7 @@
     "@fullcalendar/core": "^5.11.2",
     "@fullcalendar/daygrid": "^5.11.2",
     "@fullcalendar/interaction": "^5.11.2",
+    "@toast-ui/editor": "^3.2.0",
     "@types/nprogress": "^0.2.0",
     "@vueuse/core": "^9.1.1",
     "axios": "^0.27.2",
@@ -28,6 +29,7 @@
     "element-plus": "^2.2.14",
     "file-saver": "^2.0.5",
     "fuse.js": "^6.6.2",
+    "i18next": "^21.9.1",
     "md5": "^2.3.0",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
@@ -40,7 +42,7 @@
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.4",
     "vue3-print-nb": "^0.1.4",
-    "wangeditor": "4.7.9",
+    "wangeditor": "^4.7.15",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
