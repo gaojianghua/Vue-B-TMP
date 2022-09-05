@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-04 11:15:29
+ * @LastEditTime : 2022-09-04 21:45:31
  * @FilePath     : \web-B-tmp\src\router\guards.ts
  * @Description  :
  *
@@ -29,7 +29,6 @@ router.beforeEach(async (to, from, next) => {
         } else {
             // 判断用户信息是否存在
             if (!useStore().user.hasUserInfo) {
-                console.log('11')
                 const { permission } = await useStore().user.getProfile()
                 // 处理用户权限
                 const filterRoutes = await useStore().permission.filterRoutes(permission.menus)

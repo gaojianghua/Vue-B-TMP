@@ -15,7 +15,6 @@ const useUserStore = defineStore('user', {
     },
     getters: {
         hasUserInfo(state) {
-            console.log(123)
             return JSON.stringify(state.userInfo) !== '{}'
         }
     },

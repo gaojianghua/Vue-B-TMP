@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-09-02 16:32:21
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-02 17:40:47
+ * @LastEditTime : 2022-09-05 12:09:46
  * @FilePath     : \web-B-tmp\src\mock\article.ts
  * @Description  :
  *
@@ -92,6 +92,13 @@ let articleList = [
     }
 ]
 
+let articleDetail = {
+    title: '架构设计',
+    author: '灰太狼',
+    publicDate: '1661718913895',
+    content: `<p>你们都是大傻逼</p>`
+}
+
 export default {
     getArticleList: (params: any) => {
         let info = JSON.parse(params.body)
@@ -110,6 +117,48 @@ export default {
                 total: total,
                 totalPages: totalPages
             }
+        }
+    },
+    articleSort: (params: any) => {
+        let { initRanking, finalRanking } = JSON.parse(params.body)
+        let newIndex = 0
+        let oldIndex = 0
+        articleList.forEach((item: any, i: number) => {
+            if (initRanking === item.ranking) {
+                oldIndex = i
+            } else if (finalRanking === item.ranking) {
+                newIndex = i
+            }
+        })
+        const obj = articleList.splice(oldIndex, 1)
+        articleList.splice(newIndex, 0, ...obj)
+        console.log(articleList)
+        articleList.forEach((item, i) => (item.ranking = i + 1))
+        return {
+            code: 200,
+            msg: '修改排名成功',
+            data: ''
+        }
+    },
+    removeArticle: (params: any) => {
+        let { id } = JSON.parse(params.body)
+        articleList.forEach((item, i) => {
+            if (item.id === id) {
+                articleList.splice(i, 1)
+            }
+        })
+        articleList.forEach((item, i) => (item.ranking = i + 1))
+        return {
+            code: 200,
+            msg: '删除成功',
+            data: ''
+        }
+    },
+    getArticleDetail: (params: any) => {
+        return {
+            code: 200,
+            data: articleDetail,
+            msg: '获取成功'
         }
     }
 }

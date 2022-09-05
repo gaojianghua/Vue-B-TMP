@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-01 07:57:56
+ * @LastEditTime : 2022-09-05 08:37:23
  * @FilePath     : \web-B-tmp\src\mock\index.ts
  * @Description  :
  *
@@ -37,5 +37,8 @@ Mock.mock('/api/user-manage/permission/update', 'post', userManage.updateRolePer
 
 // article
 Mock.mock('/api/article/list', 'post', article.getArticleList)
+Mock.mock('/api/article/sort', 'post', article.articleSort)
+Mock.mock('/api/article/remove', 'post', article.removeArticle)
+Mock.mock('/api/article/detail/:id', 'get', article.getArticleDetail)
 
 export default Mock
