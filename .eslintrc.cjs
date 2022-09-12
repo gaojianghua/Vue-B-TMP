@@ -29,6 +29,7 @@ module.exports = {
         'vue/multi-word-component-names': 'off',
         'no-unused-vars': 'off',
         'prettier/prettier': 'error',
-        'space-before-function-paren': 0
+        'space-before-function-paren': 0,
+        "no-undef": "off"
     }
 }

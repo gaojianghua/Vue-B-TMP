@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-28 01:06:25
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-28 03:46:08
+ * @LastEditTime : 2022-09-12 01:28:09
  * @FilePath     : \web-B-tmp\src\views\profile\components\project-card.vue
  * @Description  : 
  * 
@@ -40,11 +40,11 @@
                     class="section-header flex items-center border-b border-solid border-[#dfe6ec] pb-[10px] mb-[10px] font-bold"
                 >
                     <g-svg-icon class="w-[1rem] h-[1rem]" name="introduce"></g-svg-icon>
-                    <span class="pl-[4px]">{{ $t('profile.projectIntroduction') }}</span>
+                    <span class="pl-[4px]">{{ $t('profile.individualitySignature') }}</span>
                 </div>
                 <div class="section-body">
                     <div class="mt-[10px] text-[14px] mb-[2px]">
-                        {{ $t('profile.muted') }}
+                        {{ useStore().user.userInfo.introduction }}
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     class="section-header flex items-center border-b border-solid border-[#dfe6ec] pb-[10px] mb-[10px] font-bold"
                 >
                     <g-svg-icon class="w-[1rem] h-[1rem]" name="reward"></g-svg-icon>
-                    <span class="pl-[4px]">{{ $t('profile.projectFunction') }}</span>
+                    <span class="pl-[4px]">{{ $t('profile.learningProcess') }}</span>
                 </div>
                 <div class="section-body">
                     <div

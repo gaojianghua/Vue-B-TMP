@@ -20,10 +20,14 @@ export default {
         <b>Note: Import user-discriminatory Chinese and English libraries! ! ! ! </b>
         `
     },
+    home: {
+        title: 'You are welcome to use'
+    },
     route: {
         home: 'Home',
         profile: 'Profile',
         user: 'User',
+        works: 'Works',
         excelImport: 'ExcelImport',
         userManage: 'EmployeeManage',
         userInfo: 'UserInfo',
@@ -60,7 +64,10 @@ export default {
         guide: 'Function Guide',
         home: 'Home',
         course: 'Course homepage',
-        logout: 'Log out'
+        logout: 'Log out',
+        profile: 'Profile',
+        works: 'Works',
+        document: 'Notes Document'
     },
     guide: {
         close: 'close',
@@ -88,28 +95,41 @@ export default {
     profile: {
         muted: 'Vue3 rewrite vue-element-admin, realize the back-end front-end integrated solution" project demonstration',
         introduce: 'Introduce',
-        projectIntroduction: 'Project Introduction',
-        projectFunction: 'Project Function',
+        individualitySignature: 'Individuality Signature',
+        learningProcess: 'Learning Process',
         feature: 'Feature',
         chapter: 'Chapter',
         author: 'Author',
-        name: 'Sunday',
+        name: 'GaoJiangHua',
         job: 'A front-end development program',
+        course: 'Course',
+        progress: 'Progress',
+        conclusion: 'Conclusion',
         Introduction:
             'A senior technical expert, once worked in a domestic first-line Internet company, and has coordinated multiple large-scale projects with more than tens of millions of users. Committed to researching big front-end technology, he has been invited to participate in domestic front-end technology sharing sessions many times, such as: Google China Technology Sharing Session in 2018.'
     },
     userInfo: {
         print: 'Print',
-        title: 'Employee information',
+        title: 'Resume of Gao Jianghua',
         name: 'name',
         sex: 'gender',
+        age: 'age',
+        nativePlace: 'Native Place',
+        jobs: 'Intention Jobs',
         nation: 'nationality',
         mobile: 'phone number',
         province: 'Place of residence',
-        date: 'Work Time',
-        remark: 'Remark',
+        intention: 'Job Intention',
+        jobStauts: 'Job Status',
+        date: 'The Work Time',
+        remark: 'Skills Tags',
         address: 'contact address',
-        experience: 'Experience',
+        experience: 'Work Experience',
+        project: 'Project Experience',
+        salary: 'Expected Salary',
+        educationBack: 'Education Background',
+        professionalSkills: 'Professional Skills',
+        selfAssessment: 'Self Assessment',
         major: 'Professional',
         glory: 'Glory',
         foot: 'Signature:___________Date:___________'

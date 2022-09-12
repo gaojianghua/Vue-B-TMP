@@ -1,3 +1,13 @@
+<!--
+ * @Author       : 高江华 g598670138@163.com
+ * @Date         : 2022-08-24 03:12:46
+ * @LastEditors  : 高江华 g598670138@163.com
+ * @LastEditTime : 2022-09-12 01:35:52
+ * @FilePath     : \web-B-tmp\src\layout\components\r-header\index.vue
+ * @Description  : 
+ * 
+ * Copyright (c) 2022 by 高江华 g598670138@163.com, All Rights Reserved. 
+-->
 <template>
     <div class="page flex items-center">
         <!-- logo -->
@@ -33,11 +43,14 @@
                 </div>
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <router-link to="/">
-                            <el-dropdown-item>{{ $t('navBar.home') }}</el-dropdown-item>
+                        <router-link to="/works">
+                            <el-dropdown-item>{{ $t('navBar.works') }}</el-dropdown-item>
                         </router-link>
-                        <a target="_blank" href="#">
-                            <el-dropdown-item>{{ $t('navBar.course') }}</el-dropdown-item>
+                        <router-link to="/profile">
+                            <el-dropdown-item>{{ $t('navBar.profile') }}</el-dropdown-item>
+                        </router-link>
+                        <a target="_blank" :href="useStore().user.userInfo.homePage">
+                            <el-dropdown-item>{{ $t('navBar.document') }}</el-dropdown-item>
                         </a>
                         <el-dropdown-item divided @click="onLogout">{{
                             $t('navBar.logout')

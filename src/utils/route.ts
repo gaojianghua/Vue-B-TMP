@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-04 11:53:04
+ * @LastEditTime : 2022-09-12 00:57:06
  * @FilePath     : \web-B-tmp\src\utils\route.ts
  * @Description  :
  *
@@ -44,7 +44,7 @@ export const filterRoutes = (routes: any) => {
  */
 export const generateMenus = (routes: any) => {
     const result = <any>[]
-    let num = 0
+    let num = 1
     let path = ''
     routes.forEach((item: any, i: number) => {
         // 不存在 children && 不存在 meta 直接 return

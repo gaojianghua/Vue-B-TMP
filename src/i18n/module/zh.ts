@@ -20,10 +20,14 @@ export default {
         <b>注意：导入用户区分中英文库！！！！</b>
         `
     },
+    home: {
+        title: '欢迎您的使用'
+    },
     route: {
         home: '首页',
         profile: '个人中心',
         user: '用户',
+        works: '作品',
         excelImport: 'Excel导入',
         userManage: '员工管理',
         userInfo: '员工信息',
@@ -60,7 +64,10 @@ export default {
         guide: '功能引导',
         home: '首页',
         course: '课程主页',
-        logout: '退出登录'
+        logout: '退出登录',
+        profile: '个人中心',
+        works: '作品',
+        document: '笔记文档'
     },
     guide: {
         close: '关闭',
@@ -88,28 +95,43 @@ export default {
     profile: {
         muted: '《vue3 改写 vue-element-admin，实现后台前端综合解决方案》项目演示',
         introduce: '介绍',
-        projectIntroduction: '项目介绍',
-        projectFunction: '项目功能',
+        individualitySignature: '个性签名',
+        learningProcess: '学习进度',
         feature: '功能',
         chapter: '章节',
         author: '作者',
-        name: 'Sunday',
+        name: '高江华',
         job: '一个前端开发程序猿',
+        course: '课程',
+        progress: '进度',
+        conclusion: '总结',
         Introduction:
             '高级技术专家，曾就职于国内一线互联网公司，统筹过的多个大型项目用户数已过千万级。致力于研究大前端技术，多次受邀参加国内前端技术分享会，如：2018 年 Google 中国技术分享会。'
     },
     userInfo: {
         print: '打印',
-        title: '员工信息',
+        title: '高江华的简历',
         name: '姓名',
         sex: '性别',
+        age: '年龄',
         nation: '民族',
         mobile: '手机号',
         province: '居住地',
-        date: '工作时间',
-        remark: '备注',
+        nativePlace: '籍贯',
+        jobs: '意向岗位',
+        intention: '求职意向',
+        date: '到岗时间',
+        remark: '技能标签',
         address: '联系地址',
-        experience: '经历',
+        experience: '工作经历',
+        project: '项目经历',
+        education: '学历',
+        jobStauts: '求职状态',
+        salary: '期望薪资',
+        educationBack: '教育背景',
+        professionalSkills: '专业技能',
+        selfAssessment: '自我评价',
+        email: '邮箱',
         major: '专业',
         glory: '荣耀',
         foot: '签字：___________日期:___________'

@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-28 04:19:31
+ * @LastEditTime : 2022-09-12 02:21:11
  * @FilePath     : \web-B-tmp\src\views\profile\index.vue
  * @Description  : 
  * 
@@ -17,13 +17,13 @@
             <el-col :span="18" :offset="0">
                 <el-card shadow="always" :body-style="{ padding: '20px' }">
                     <el-tabs v-model="activeName">
-                        <el-tab-pane :label="$t('profile.feature')" name="feature">
+                        <el-tab-pane :label="$t('profile.course')" name="feature">
                             <feature-vue :features="featureData"></feature-vue>
                         </el-tab-pane>
-                        <el-tab-pane :label="$t('profile.chapter')" name="chapter">
+                        <el-tab-pane :label="$t('profile.progress')" name="chapter">
                             <chapter-vue></chapter-vue>
                         </el-tab-pane>
-                        <el-tab-pane :label="$t('profile.author')" name="author">
+                        <el-tab-pane :label="$t('profile.conclusion')" name="author">
                             <author-vue></author-vue>
                         </el-tab-pane>
                     </el-tabs>

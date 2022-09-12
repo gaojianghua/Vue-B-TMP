@@ -34,10 +34,18 @@ export const publicRoutes = [
                 path: '/profile',
                 name: 'profile',
                 meta: {
-                    title: 'profile',
-                    icon: 'UserFilled'
+                    title: 'profile'
                 },
                 component: () => import('@/views/profile/index.vue')
+            },
+            // 作品
+            {
+                path: '/works',
+                name: 'works',
+                meta: {
+                    title: 'works'
+                },
+                component: () => import('@/views/works/index.vue')
             },
             // 404
             {

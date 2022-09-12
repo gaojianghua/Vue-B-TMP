@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-27 05:50:57
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-29 06:04:11
+ * @LastEditTime : 2022-09-12 01:15:14
  * @FilePath     : \web-B-tmp\src\components\tags-view\index.vue
  * @Description  : 
  * 
@@ -11,10 +11,10 @@
 <template>
     <div id="guide-tags" class="tagsView flex items-center h-[34px] py-[2px]">
         <router-link
-            class="routerLink h-full w-[none] flex items-center"
+            class="routerLink h-full w-[120px] flex items-center justify-center"
             v-for="(tag, i) in useStore().common.tagsViewList"
             :key="tag.fullPath"
-            :class="isActive(tag) ? 'active' : ''"
+            :class="isActive(tag) ? 'active' : 'unactive'"
             :to="{ path: tag.fullPath }"
             :style="{
                 backgroundColor: isActive(tag) ? mainBg : '',
@@ -24,7 +24,7 @@
         >
             {{ tag.title }}
             <el-icon
-                class="close ml-1"
+                class="close ml-auto"
                 v-show="!isActive(tag)"
                 name="close"
                 @click.prevent.stop="onClose(i)"
@@ -110,22 +110,47 @@ const onMenuClose = () => {
     box-sizing: content-box;
     .routerLink {
         height: 30px !important;
-        letter-spacing: 1px;
         box-sizing: border-box;
         position: relative;
         cursor: pointer;
         color: #495060;
         padding: 0 10px;
         font-size: 12px;
+        margin: 0 10px;
+        .unactive {
+            &::after {
+                content: '';
+                display: inline-block;
+                border-right: 6px solid transparent;
+                border-bottom: 15px solid transparent;
+                border-top: 15px solid #fff;
+                border-left: 6px solid #fff;
+                position: absolute;
+                right: -12px;
+                top: 0;
+                z-index: 10;
+            }
+            &::before {
+                content: '';
+                display: inline-block;
+                border-right: 6px solid #fff;
+                border-bottom: 15px solid #fff;
+                border-top: 15px solid transparent;
+                border-left: 6px solid transparent;
+                position: absolute;
+                left: -12px;
+                top: 0;
+            }
+        }
+
         &:first-of-type {
-            margin-left: 10px;
+            margin-left: 30px;
         }
         &:last-of-type {
-            margin-right: 10px;
+            margin-right: 30px;
         }
         &.active {
             color: #fff;
-            margin: 0 20px;
             &::after {
                 content: '';
                 display: inline-block;

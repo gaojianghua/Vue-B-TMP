@@ -1,43 +1,46 @@
 <template>
-    <div class="login-container">
+    <div class="login-container flex items-center justify-center">
         <el-form class="login-form" ref="ruleFormRef" :model="form" :rules="rules">
-            <div class="flex justify-center items-center mb-8">
+            <!-- <div class="logo flex justify-center items-center mb-8">
                 <img src="@/assets/images/logo.png" alt="" />
+            </div> -->
+            <div class="form-box">
+                <div class="flex mb-[18px]">
+                    <span class="text-[18px] font-bold">用户登录</span>
+                    <lang-select
+                        class="w-[20px] h-[20px] ml-auto border-none bg-white rounded cursor-pointer p-[4px]"
+                    ></lang-select>
+                </div>
+
+                <el-form-item prop="username">
+                    <el-input
+                        v-model="form.username"
+                        :placeholder="i18n.t('login.username')"
+                        prefix-icon="UserFilled"
+                    ></el-input>
+                </el-form-item>
+                <el-form-item prop="password">
+                    <el-input
+                        v-model="form.password"
+                        type="password"
+                        :placeholder="i18n.t('login.password')"
+                        prefix-icon="Lock"
+                        show-password
+                        @keyup.enter="onLogin(ruleFormRef)"
+                    ></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button
+                        :loading="loading"
+                        size="large"
+                        class="w-full"
+                        type="primary"
+                        @click="onLogin(ruleFormRef)"
+                        >{{ $t('login.loginBtn') }}</el-button
+                    >
+                </el-form-item>
             </div>
-            <div class="flex mb-[18px]">
-                <span></span>
-                <lang-select
-                    class="w-[20px] h-[20px] ml-auto border-none bg-white rounded cursor-pointer p-[4px]"
-                ></lang-select>
-            </div>
-            <el-form-item prop="username">
-                <el-input
-                    v-model="form.username"
-                    :placeholder="i18n.t('login.username')"
-                    prefix-icon="UserFilled"
-                ></el-input>
-            </el-form-item>
-            <el-form-item prop="password">
-                <el-input
-                    v-model="form.password"
-                    type="password"
-                    :placeholder="i18n.t('login.password')"
-                    prefix-icon="Lock"
-                    show-password
-                    @keyup.enter="onLogin(ruleFormRef)"
-                ></el-input>
-            </el-form-item>
-            <el-form-item>
-                <el-button
-                    :loading="loading"
-                    size="large"
-                    class="w-full"
-                    type="primary"
-                    @click="onLogin(ruleFormRef)"
-                    >{{ $t('login.loginBtn') }}</el-button
-                >
-            </el-form-item>
-            <div class="text-white" v-html="$t('login.desc')"></div>
+            <!-- <div class="text-white" v-html="$t('login.desc')"></div> -->
         </el-form>
     </div>
 </template>
@@ -107,20 +110,18 @@ const onLogin = async (formEl: FormInstance | undefined) => {
 <style lang="scss" scoped>
 $bg: #2d3a4b;
 $dark_gray: #889aa4;
-$light_gray: #eee;
+$light_gray: #333;
 $cursor: #fff;
 .login-container {
     min-height: 100%;
     width: 100%;
     background-color: $bg;
     overflow: hidden;
+    background-image: url('https://official-document.oss-cn-hangzhou.aliyuncs.com/141b53c86d1f6dc174982e6f122dcbfc.jpg');
+    background-image: 100% 100%;
     .login-form {
-        position: relative;
         width: 380px;
         max-width: 100%;
-        padding: 160px 0 0;
-        margin: 0 auto;
-        overflow: hidden;
         :deep(.el-form-item) {
             border: 1px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(0, 0, 0, 0.1);
@@ -143,6 +144,20 @@ $cursor: #fff;
                 color: $light_gray;
                 caret-color: $cursor;
             }
+        }
+        .logo {
+            border-radius: 5px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 10px #333;
+        }
+        .form-box {
+            border-radius: 5px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 10px #fff;
         }
     }
 }
