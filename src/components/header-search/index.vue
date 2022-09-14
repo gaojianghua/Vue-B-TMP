@@ -12,7 +12,7 @@
     <div class="flex items-center" :class="{ show: isShow }">
         <g-svg-icon
             id="guide-search"
-            class="cursor-pointer text-[18px] w-[26px] h-[26px] mr-2"
+            class="cursor-pointer text-[18px] w-[24px] h-[24px] mr-2"
             name="search"
             @click.stop="onShowClick"
         ></g-svg-icon>
@@ -45,9 +45,9 @@ import { filterRoutes } from '@/utils/route'
 import { useRouter } from 'vue-router'
 import { generateRoutes } from '@/utils/fuseData'
 import { watchSwitchLang } from '@/utils/routeI18n'
-const router = useRouter()
 import Fuse from 'fuse.js'
 
+const router = useRouter()
 // 控制search展示
 const isShow = ref<boolean>(false)
 // search

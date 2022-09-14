@@ -20,4 +20,5 @@ export interface IUserManageApi {
     updateUserRole: (query: any) => Promise<any>
     getRoleInPermission: (query: any) => Promise<any>
     updateRolePermission: (query: any) => Promise<any>
+    updateUser: (query: any) => Promise<any>
 }

@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-12 01:35:52
+ * @LastEditTime : 2022-09-13 05:12:11
  * @FilePath     : \web-B-tmp\src\layout\components\r-header\index.vue
  * @Description  : 
  * 
@@ -20,15 +20,15 @@
         <!-- 用户信息 -->
         <div class="ml-auto flex items-center">
             <!-- 引导导航 -->
-            <guide-page class="w-[30px] h-[30px] mx-2"></guide-page>
+            <guide-page class="w-[26px] h-[26px] mx-2"></guide-page>
             <!-- 页面搜索 -->
             <header-search></header-search>
             <!-- 全屏切换 -->
-            <screen-full class="w-[30px] h-[30px] mx-2"></screen-full>
+            <screen-full class="w-[24px] h-[24px] mx-2"></screen-full>
             <!-- 换肤 -->
-            <theme-select class="w-[32px] h-[32px] mr-2"></theme-select>
+            <theme-select class="w-[28px] h-[28px] mr-2"></theme-select>
             <!-- 选择语言 -->
-            <lang-select class="w-[32px] h-[32px] mr-2"></lang-select>
+            <lang-select class="w-[28px] h-[28px] mr-2"></lang-select>
             <!-- 头像 -->
             <el-dropdown trigger="click">
                 <div class="flex items-center">

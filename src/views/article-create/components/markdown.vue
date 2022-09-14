@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-09-05 12:22:43
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-05 14:09:01
+ * @LastEditTime : 2022-09-13 04:30:14
  * @FilePath     : \web-B-tmp\src\views\article-create\components\markdown.vue
  * @Description  : 
  * 
@@ -26,7 +26,7 @@ import '@toast-ui/editor/dist/toastui-editor.css'
 import '@toast-ui/editor/dist/i18n/zh-cn'
 import useStore from '@/store'
 import { watchSwitchLang } from '@/utils/routeI18n'
-import { commitArticle, updateArticle } from './commit'
+import { commitArticle, editorArticle } from './commit'
 
 const props = defineProps({
     title: {
@@ -62,7 +62,7 @@ onMounted(() => {
 // 提交事件
 const onSumitMarkdown = async () => {
     if (props.detail && props.detail.id) {
-        await updateArticle({
+        await editorArticle({
             id: props.detail.id,
             title: props.title,
             content: mkEditor.getHTML()

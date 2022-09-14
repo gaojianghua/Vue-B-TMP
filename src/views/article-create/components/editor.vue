@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-09-05 12:22:24
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-05 17:22:12
+ * @LastEditTime : 2022-09-13 04:29:13
  * @FilePath     : \web-B-tmp\src\views\article-create\components\editor.vue
  * @Description  : 
  * 
@@ -24,7 +24,7 @@ import { onMounted, watch } from 'vue'
 import Editor from 'wangeditor'
 import i18next from 'i18next'
 import useStore from '@/store'
-import { commitArticle, updateArticle } from './commit'
+import { commitArticle, editorArticle } from './commit'
 
 const props = defineProps({
     title: {
@@ -59,7 +59,7 @@ onMounted(() => {
 // 提交事件
 const onSumitMarkdown = async () => {
     if (props.detail && props.detail.id) {
-        await updateArticle({
+        await editorArticle({
             id: props.detail.id,
             title: props.title,
             content: editor.txt.html()

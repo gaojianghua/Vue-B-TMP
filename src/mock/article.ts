@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-09-02 16:32:21
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-05 14:02:43
+ * @LastEditTime : 2022-09-13 04:27:04
  * @FilePath     : \web-B-tmp\src\mock\article.ts
  * @Description  :
  *
@@ -185,7 +185,7 @@ export default {
             msg: '创建成功'
         }
     },
-    updateArticle: (params: any) => {
+    editorArticle: (params: any) => {
         let { id, title, content } = JSON.parse(params.body)
         articleList.forEach((item) => {
             if (item.id === id) {
@@ -195,6 +195,19 @@ export default {
                     content,
                     publicDate: new Date().getTime()
                 } as any
+            }
+        })
+        return {
+            code: 200,
+            data: '',
+            msg: '修改成功'
+        }
+    },
+    updateArticle: (params: any) => {
+        let { id, key, value } = JSON.parse(params.body)
+        articleList.forEach((item) => {
+            if (item.id === id) {
+                item[key as keyof typeof item] = value as never
             }
         })
         return {

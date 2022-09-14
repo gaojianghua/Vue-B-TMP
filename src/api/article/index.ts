@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-28 01:51:54
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-05 13:33:06
+ * @LastEditTime : 2022-09-13 04:25:45
  * @FilePath     : \web-B-tmp\src\api\article\index.ts
  * @Description  :
  *
@@ -33,6 +33,10 @@ const articleApi: T.IArticleApi = {
         return http.post('/article/create', query)
     },
     // 编辑文章
+    editorArticle(query) {
+        return http.post('/article/editor', query)
+    },
+    // 修改文章信息
     updateArticle(query) {
         return http.post('/article/update', query)
     }

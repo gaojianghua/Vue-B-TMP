@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-07-18 16:58:19
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-24 04:10:04
+ * @LastEditTime : 2022-09-12 19:43:24
  * @FilePath     : \web-B-tmp\vite.config.ts
  * @Description  :
  *
@@ -19,6 +19,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base:'./',
     plugins: [
         AutoImport({
             resolvers: [ElementPlusResolver()]

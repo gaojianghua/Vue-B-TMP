@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-05 09:14:55
+ * @LastEditTime : 2022-09-13 04:24:30
  * @FilePath     : \web-B-tmp\src\views\article-ranking\index.vue
  * @Description  : 
  * 
@@ -40,6 +40,7 @@
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
                 ref="tableRef"
+                @confirm="confirm"
             >
                 <template #ranking="{ scope }">
                     <span>{{ scope.row.ranking }}</span>
@@ -80,6 +81,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import i18n from '@/i18n'
 import router from '@/router'
 
+console.log()
 const tableRef = ref<any | null>(null)
 const initSortable = (articleListData: any, cb: Function) => {
     tableRef.value = document.querySelector('.el-scrollbar__view > table > tbody')
@@ -168,6 +170,29 @@ const onRemoveArticle = (row: any) => {
             console.log(err)
         })
 }
+// 修改单个数据
+const confirm = (scope: any) => {
+    ElMessageBox.confirm(
+        i18n.global.t('excel.dialogTitle3') +
+            scope.row[tableColumns.value[scope.cellIndex].prop] +
+            i18n.global.t('excel.dialogTitle4'),
+        {
+            type: 'warning'
+        }
+    )
+        .then(async () => {
+            const obj = {
+                id: scope.row.id,
+                key: tableColumns.value[scope.cellIndex].prop,
+                value: scope.row[tableColumns.value[scope.cellIndex].prop]
+            }
+            await articleApi.updateArticle(obj)
+            ElMessage.success(i18n.global.t('excel.updateSuccess'))
+            getArticleListData()
+        })
+        .catch(() => {})
+}
+
 getArticleListData()
 watchSwitchLang(getArticleListData)
 onActivated(getArticleListData)

@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:46
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-01 07:56:01
+ * @LastEditTime : 2022-09-13 04:09:35
  * @FilePath     : \web-B-tmp\src\api\user-manage\index.ts
  * @Description  :
  *
@@ -55,6 +55,10 @@ const userManageApi: T.IUserManageApi = {
     // 为用户分配角色
     updateRolePermission(query) {
         return http.post('/user-manage/permission/update', query)
+    },
+    // 修改用户单一属性
+    updateUser(query) {
+        return http.post('/user-manage/update', query)
     }
 }
 export default userManageApi

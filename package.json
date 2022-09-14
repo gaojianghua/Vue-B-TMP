@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --fix --ext .ts,.vue src",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
@@ -17,6 +17,7 @@
     "@fullcalendar/core": "^5.11.2",
     "@fullcalendar/daygrid": "^5.11.2",
     "@fullcalendar/interaction": "^5.11.2",
+    "@qiun/ucharts": "^2.4.3-20220505",
     "@toast-ui/editor": "^3.2.0",
     "@types/nprogress": "^0.2.0",
     "@vueuse/core": "^9.1.1",

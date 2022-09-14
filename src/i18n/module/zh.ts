@@ -164,6 +164,9 @@ export default {
         importSuccess: ' 条员工数据导入成功',
         dialogTitle1: '确定要删除用户 ',
         dialogTitle2: ' 吗？',
+        dialogTitle3: '确定修改该项为 ',
+        dialogTitle4: ' 吗？',
+        updateSuccess: '修改成功',
         roleDialogTitle: '配置角色'
     },
     role: {

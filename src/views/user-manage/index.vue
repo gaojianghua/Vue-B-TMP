@@ -32,6 +32,7 @@
                 v-model:editRowIndex="editRowIndex"
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
+                @confirm="confirm"
             >
                 <template #id="{ scope }">
                     <span>{{ scope.row.id }}</span>
@@ -238,6 +239,29 @@ const onRemoveUser = (row: any) => {
         })
         .catch(() => {})
 }
+// 修改单个数据
+const confirm = (scope: any) => {
+    ElMessageBox.confirm(
+        i18n.t('excel.dialogTitle3') +
+            scope.row[options.value[scope.cellIndex].prop] +
+            i18n.t('excel.dialogTitle4'),
+        {
+            type: 'warning'
+        }
+    )
+        .then(async () => {
+            const obj = {
+                id: scope.row.id,
+                key: options.value[scope.cellIndex].prop,
+                value: scope.row[options.value[scope.cellIndex].prop]
+            }
+            await userManageApi.updateUser(obj)
+            ElMessage.success(i18n.t('excel.updateSuccess'))
+            getUserListData()
+        })
+        .catch(() => {})
+}
+
 watch(roleDialogVisible, (val) => {
     if (!val) userId.value = 0
 })

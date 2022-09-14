@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-26 05:27:26
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-27 14:05:17
+ * @LastEditTime : 2022-09-13 06:13:55
  * @FilePath     : \web-B-tmp\src\components\screen-full\index.vue
  * @Description  : 
  * 
@@ -21,12 +21,22 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import screenfull from 'screenfull'
 
+const props = defineProps({
+    target: {
+        type: Element
+    }
+})
+
 // 是否全屏
 const isFullscreen = ref<boolean>(false)
 
 // 点击全屏放大缩小
 const onToggle = () => {
-    screenfull.toggle()
+    if (props.target) {
+        screenfull.toggle(props.target)
+    } else {
+        screenfull.toggle()
+    }
 }
 
 // 监听 screenfull

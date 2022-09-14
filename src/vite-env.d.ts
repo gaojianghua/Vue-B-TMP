@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-07-18 16:58:19
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-29 04:24:13
+ * @LastEditTime : 2022-09-13 22:12:24
  * @FilePath     : \web-B-tmp\src\vite-env.d.ts
  * @Description  :
  *
@@ -19,3 +19,4 @@ declare module 'wangeditor'
 declare module 'css-color-function'
 declare module 'fuse.js'
 declare module 'vue3-print-nb'
+declare module '@qiun/ucharts'

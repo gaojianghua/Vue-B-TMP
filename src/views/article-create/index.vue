@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-24 03:12:47
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-05 17:22:26
+ * @LastEditTime : 2022-09-13 04:19:13
  * @FilePath     : \web-B-tmp\src\views\article-create\index.vue
  * @Description  : 
  * 
@@ -56,7 +56,7 @@ const onSuccess = () => {
 const articleId = route.params.id
 const articleDetail = ref<any>({})
 const getArticleDetail = async () => {
-    articleDetail.value = await articleApi.getArticleDetail(articleId)
+    articleDetail.value = await articleApi.getArticleDetail({ id: articleId })
     title.value = articleDetail.value.title
 }
 if (articleId) {

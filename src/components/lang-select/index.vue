@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-23 02:35:27
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-08-27 14:06:06
+ * @LastEditTime : 2022-09-12 20:09:28
  * @FilePath     : \web-B-tmp\src\components\lang-select\index.vue
  * @Description  : 
  * 
@@ -35,8 +35,6 @@ import { computed, ref } from 'vue'
 import useStore from '@/store'
 import { useI18n } from 'vue-i18n'
 import { ElMessage } from 'element-plus'
-import { setItem } from '@/utils/storage'
-import { LANG } from '@/constants'
 
 defineProps({
     effect: {

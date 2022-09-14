@@ -2,7 +2,7 @@
  * @Author       : 高江华 g598670138@163.com
  * @Date         : 2022-08-28 07:05:05
  * @LastEditors  : 高江华 g598670138@163.com
- * @LastEditTime : 2022-09-02 16:36:03
+ * @LastEditTime : 2022-09-13 04:12:59
  * @FilePath     : \web-B-tmp\src\mock\user-manage.ts
  * @Description  :
  *
@@ -178,6 +178,20 @@ export default {
             code: 200,
             data: '',
             msg: '分配成功'
+        }
+    },
+    // 修改用户单一属性
+    updateUser: (params: any) => {
+        let { id, key, value } = JSON.parse(params.body)
+        staffList.forEach((item) => {
+            if (item.id === id) {
+                item[key as keyof typeof item] = value as never
+            }
+        })
+        return {
+            code: 200,
+            data: '',
+            msg: '修改成功'
         }
     }
 }
